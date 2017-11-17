@@ -1,0 +1,18 @@
+variable can be define with '' or "".
+in the Chrome console, you can see the file name and line number of the output on the right end of the line.
+
+JavaScript has 5 primitive(these are not objects) data types:
+Number, Floating point numbers for decimals and integers. 5 means 5.0, there is not integer in JavaScript.
+String, Boolean, 
+Undefined: Data type of a variable which does not have a value yet.
+Null: Also means 'non-existent'.
+
+JavaScript has dynamic typing.
+JavaScript figure out the data type of variable on it own and on the fly.
+
+type coercion.
+https://stackoverflow.com/questions/19915688/what-exactly-is-type-coercion-in-javascript
+
+Chrome console using different color for different data type.
+
+console has prompt and alert function.
