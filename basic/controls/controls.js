@@ -44,3 +44,48 @@ switch(job){
     default:
     console.log('John does something else.');
 }
+
+//Lecture: Loops
+
+// for loops
+for(var i = 0; i < 10; i++){ //it calculate the condition, then log it, then do i++?
+    /*
+    0, true, print 0, update i to 1
+    1, true, print 1, update i to 2
+    ...
+    9, true, print 9, update i to 10
+    10, false, end loop!
+    */
+    console.log(i);
+}
+
+console.log(i); //actually, we can't test it print firstly or update firstly.
+
+var names = ['John', 'Jone', 'Mary', 'Mark', 'Bob'];
+for(var i = 0; i < names.length; i++){ //length is the property of array
+    console.log(names[i]);
+}
+//Note, you can write to chrome's console directly. after the sign '>'
+
+//while loops
+var i = 0;
+while(i <names.length){
+    console.log(names[i]);
+    i++;
+}
+
+//break mean break the loop.
+for(var i = 1; i < 6; i++){
+    console.log(i);
+    if( i == 3) {
+         break;
+    }
+}
+
+//continue means end the current itrator of the loop, and go to next one.
+for(var i = 1; i < 6; i++){
+        if( i == 3) {
+         continue;
+    }
+    console.log(i);
+}
