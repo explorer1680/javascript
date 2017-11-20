@@ -1,0 +1,3 @@
+operetors precedence.
+http://codingheroes.io/resources/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
