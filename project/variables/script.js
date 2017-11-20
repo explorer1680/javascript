@@ -12,7 +12,7 @@ var fullAge = true;
 console.log(fullAge);
 
 //Lecture: variables 2
-var name = 'Johh';
+var name = 'John';
 var age = 26;
 
 console.log(name+26); //here, javascript automatically conver number to string.

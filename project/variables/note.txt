@@ -1,4 +1,4 @@
-variable can be define with '' or "".
+string type variable can be define with '' or "".
 in the Chrome console, you can see the file name and line number of the output on the right end of the line.
 
 JavaScript has 5 primitive(these are not objects) data types:
