@@ -1,0 +1,72 @@
+Javascript is always host in some environment, tipically is browser, like Google Chrome.
+Other host example is Node.js web server.
+
+behind  the scene:
+Javascript engine take our code and executed. Javascript engine is a program that execute Javascript code.
+example is Google V8 engine, used in Google Chrome.
+
+in engine, our code is parse by a parser, read our code line by line, and check the syntax. 
+It throw an error and stop the execution if it found the error.
+
+If everything good, it produce a "Abstract syntax Tree".
+then, translated to maching code.
+
+then run.
+
+Please note, above is just a simple introduction, and different engine do things a little different.
+
+Execution Context:
+The default execution context, the global EC:
+    code that is not inside any function
+    you can think of EC is an object, then the global EC is associated with the global object
+    in the browser, that's the window object(everything we declare in global EC, is automatically attached to the window object as a property)
+
+Note, the function declaration is also inside of global EC.
+
+When call a function in global EC, it will get a new EC "on top of" the global EC. 
+This "on top of" will form a "Execution Stack".
+
+When call another function inside of another function's EC, there is one more new EC put "on top of" the "Execution Stack".
+
+When the function return, the corresponding EC is removed(or pop off) from "Execution Stack".
+
+How EC is created:
+EC object has 3 properties:
+1. Variable Object(VO), contain function arguments, any variable declarations, function declarations.
+2. Scope Chain, contain the current VO as well as the VOs of its parents.
+3. "this" variable.
+
+Creation phase
+1. creation of the VO
+    the argument object is created.
+    Hoisting: (funciton and variable are hoisted in Javascript, that means they are available before the execution phase actually start.)
+        code is scanned for function declarations, for each function, a property is created in the VO, pointing to the function. (funciton is hoisted in Javascript)
+        code is scanned for variable declarations, for each variable, a property is created in the VO, and set to undefined. (variable is hoisted in Javascript)
+2. creation of Scope Chain
+3. Determine value of the "this" variable
+
+Execution phase:
+The code of the function that generate the current EC is ran line by line.
+
+
+
+Scope Chain:
+Scoping answer the question "where can we access a certain variable?"
+
+Each new funciton creates a scope. (not for block, if block like some other programming language.)
+create a new function is the only way to create a new scope.
+
+Lexical scoping: a funciton that is lexically within another funciton gets access to the scope of the outer function.
+This is also means that a funciton declared in global scope can access the function and variable declared in global scope.
+
+global Scope can be access from everywhere, from all functions. (we can think it as default scope)
+
+Scope Chain is the chain (order, direction) javascript try to find the variable and funciton in sequence.
+
+"this" variable store the EC object.
+in regular funciton call: 'this' keyword point at the global object (the window object, in the browser).
+method call: 'this' points to the object that is calling  the method.
+Note: 'this' keyword is not assigned a value until a function where it is defined is actually called.
+
+Note:
+what is method borrow. see inside of the bts.js
