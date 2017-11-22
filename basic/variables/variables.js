@@ -35,3 +35,7 @@ var lastName = prompt('What is the last name?');
 console.log(lastName);
 
 alert(name + ' is a ' + age + ' years old ' + job + '. Is he married? ' + isMarried + '.');
+
+abcdef = 1; //Here, it seems that you don't need 'var' to declare a variable.
+//https://stackoverflow.com/questions/1470488/what-is-the-purpose-of-the-var-keyword-and-when-to-use-it-or-omit-it
+console.log(abcdef);
