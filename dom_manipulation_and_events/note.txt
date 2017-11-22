@@ -1,0 +1,68 @@
+DOM: Document Object Model;
+It is a structured representation of an HTML document;
+
+For each HTML element(<body>, <p>, <a> etc.), there is an object in the DOM that we can access and interact with.
+
+Javascript and DOM are 2 different things.
+Javascript interact/manipulate DOM.
+
+In HTML element, 'class' and 'id' attribute give a name to element, the difference is the 'id' has to be unique.
+
+HTML has a 'header' and a 'body', 'body' contains the visible part of the page.
+
+class selector: '.classname'
+type selector: 'body'
+universal selector: '*'
+id selector: '#'
+
+Best practice:
+define all var at the beginning of the file, then, assign value to them later:
+
+    var scores, roundScore, activePlayer ...
+
+    scores = [0,0];
+    ...
+
+Javascript has a Math object. It has a method:
+    Math.random();
+    Math.floor();
+
+
+DOM object:
+
+    document.querySelector('#current-' + activePlayer)  //same as selector as css, but only return the first one.
+    .textContent= dice; //textContent only change the text, following is another way
+    .innerHTML = '<em>' + dice + '</em>'; // if you place this to above, the display will be '<em>5</em>'.
+
+    document.getElementById('score-0').textContent = '0'; //getElementById is faster, the param is just id name without '#'.
+
+    //to read
+    var x = document.querySelector('#score-0').textContent;
+
+    //change css 
+    document.querySelector('.dice').style.display = 'none'; //to change css, using 'style' attribute, 'display' is css property.
+
+
+Events: notifications that are sent to notify the code that something happened on the webpage;
+events triggered by: click a button, resize  the window, scrolling down or pressing a key;
+Event listener: A function that perform an action based on a certain event. It waits for a specific event to happen.
+
+how event processed:
+event can only be processed as soon as the Execution Stack is empty, which means all the function has returned.
+There is a message queue in the Javascript engine. All the events are queue there, when ES is empty, 
+the next event in the queue get processed. Then, this event's event listener is called. Since, it is a function, then,
+it put its Execution Context on the ES.
+
+    function btn(){}
+
+    //in here, we just pass 'btn' in, not 'btn()', it is callback function, we don't call it, 
+    //we let listener (another function) call it. 
+    document.querySelector('.btn-roll').addEventListener('click', btn) //for event detail: https://developer.mozilla.org/en-US/
+
+    //anonymous function, a function doesn't have a name, it can't be reused.
+    document.querySelector('.btn-roll').addEventListener('click', function(){});
+
+    //not repeat the code
+    var diceDOM = document.querySelector('.dice');
+    diceDOM.style.display = 'block';
+    diceDOM.src = 'dice-' + dice + '.png';
