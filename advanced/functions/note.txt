@@ -7,5 +7,21 @@ We can pass a function as an argument to another function.
 We can also return a function from a function.
 
 because of all above, we call in javascript, we have First-Class functions.
+I think it means the function is object.
 
 
+Closures:
+An inner function has always access to the variables and parameters of its outer function, even after the outer function has returned.
+
+the reason for that is:
+when function returned, the Execution Context has gone, but, the Variable Object(VO) is still there in memory,
+and we can see it from EC and from the Scope Chain.
+
+since the returned function writen lexically inside of the outer function, it access to its scope.
+
+the inner function closed in the outer function, so it is called closure.
+
+the scope chain always stays intact.
+
+Bind, Call and Apply
+function is object, it also get some special method which inheritance from Function constructor object.
