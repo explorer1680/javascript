@@ -66,3 +66,12 @@ it put its Execution Context on the ES.
     var diceDOM = document.querySelector('.dice');
     diceDOM.style.display = 'block';
     diceDOM.src = 'dice-' + dice + '.png';
+
+
+    //remove css class
+    document.querySelector('.player-0-panel').classList.remove('active');
+    //add css class
+    document.querySelector('.player-1-panel').classList.add('active');  //if you add twice, there will be 2 active, 
+                                                                        //then when you remove it, only 1 is removed, and 1 is left.
+    //toggle css class
+     document.querySelector('.player-1-panel').classList.toggle('active');

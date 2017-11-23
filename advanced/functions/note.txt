@@ -1,0 +1,11 @@
+functions are objects.
+
+A function is an instance of the Object type.
+A function behave like any other object.
+We can store functions in a variable.
+We can pass a function as an argument to another function.
+We can also return a function from a function.
+
+because of all above, we call in javascript, we have First-Class functions.
+
+
