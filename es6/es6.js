@@ -42,7 +42,7 @@ driversLicence5(true);
 //ES6
 function driversLicence6(parssedTest){
     if(parssedTest){
-        console.log(firstName);// here is error: firstName is not defined
+        // console.log(firstName);// here is error: firstName is not defined
         // here is something call temporal dead zone, that means the variables are hoisted,
         // but we can't access variable before it is declared.
         let firstName = 'John';
@@ -55,3 +55,23 @@ function driversLicence6(parssedTest){
 }
 
 driversLicence6(true);
+
+
+// Lecture: Blocks and IIFEs
+console.log('---------------------Blocks and IIFEs-----------------');
+
+//ES5
+(function(){
+    var c = 3;
+})();
+
+
+//ES6
+{//here we create a block
+    const a = 1;
+    let b =2;
+    var c = 3;
+}
+
+// console.log(a+b); //this is an error.
+console.log(c);
