@@ -11,6 +11,10 @@ console.log(name ===window.name);
 //call this function before it declaration. this function is hoisted in creation phase, then it is available in execution phase.
 calculateAge(1965);
 
+//check type
+console.log(typeof calculateAge);
+console.log(typeof retirement);// here is undefined
+
 //here is function declaration
 function calculateAge(year){
     console.log(2017-year);
@@ -19,11 +23,15 @@ function calculateAge(year){
 // for function expression, calling it before is not working.
 // retirement(1990);
 
+
+
 //here is function expression, Hoisting is only work for function declarations.
 var retirement = function(year){
     console.log(65 - (2017- year));
 }
 
+console.log('typeof retirement: ' + typeof retirement);// here is function, the reason why they are different is because
+//var has undefined value when it is hoisting
 
 retirement(1990);
 
@@ -39,11 +47,14 @@ console.log(age);
 
 foo();
 function foo(){
-    console.log(age);//note here, it will not go to global EC to get 'age'
-    console.log(name);//note here, it will go to global EC to get 'name'
+    console.log('inside foo(): ' + age);//note here, if you don't define 'age' inside of this function, 
+    //it will not go to global EC to get 'age', but, if you have defined 'age' inside of this funciotn,
+    //it will using the 'age' inside of function, that why it show 'undefined' here, when you comment out
+    //the following definition, it will show 23. 
+    console.log('inside foo(): ' + name);//note here, it will go to global EC to get 'name'
     var age = 65;
-    console.log(age);
-    // console.log(notdeclared);
+    console.log('inside foo(): ' + age);
+    // console.log('inside foo(): ' + notdeclared);
 }
 
 console.log(age);
@@ -82,6 +93,7 @@ var john = {
         console.log(this);
         console.log(2017 - this.yearOfBirth);
 
+        // function can be declared inside of method.
         function innerFunction(){ //here is not a method, also it is declared inside of a method.
             console.log(this);//when regular function called, the 'this' pointing to default object.
         }

@@ -7,7 +7,7 @@ constructor or prototype(in another programming language, it is called class)
 
 Inheritance
 
-Note, the Inheritance here is not same as java.
+Note, the Inheritance here is not same as java. It like static method or field in java.
 Here, the constructor is 'Class' in java.
 The instance of constructor has a '__proto__' property, you can check this by javascript console;
 The constructor has a 'prototype' property, you can set this property in javascript;

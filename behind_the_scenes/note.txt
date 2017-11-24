@@ -8,7 +8,7 @@ example is Google V8 engine, used in Google Chrome.
 in engine, our code is parse by a parser, read our code line by line, and check the syntax. 
 It throw an error and stop the execution if it found the error.
 
-If everything good, it produce a "Abstract syntax Tree".
+If everything good, it produce a "Abstract Syntax Tree".
 then, translated to maching code.
 
 then run.
@@ -18,8 +18,8 @@ Please note, above is just a simple introduction, and different engine do things
 Execution Context:
 The default execution context, the global EC:
     code that is not inside any function
-    you can think of EC is an object, then the global EC is associated with the global object
-    in the browser, that's the window object(everything we declare in global EC, is automatically attached to the window object as a property)
+    you can think of EC is an object, then the global EC is associated with the global object in the browser, that's the window object
+    (everything we declare in global EC, is automatically attached to the window object as a property)
 
 Note, the function declaration is also inside of global EC.
 
@@ -40,8 +40,10 @@ Creation phase
 1. creation of the VO
     the argument object is created.
     Hoisting: (funciton and variable are hoisted in Javascript, that means they are available before the execution phase actually start.)
-        code is scanned for function declarations, for each function, a property is created in the VO, pointing to the function. (funciton is hoisted in Javascript)
-        code is scanned for variable declarations, for each variable, a property is created in the VO, and set to undefined. (variable is hoisted in Javascript)
+        code is scanned for function declarations, for each function, a property is created in the VO, pointing to the function. 
+        (funciton is hoisted in Javascript)
+        code is scanned for variable declarations, for each variable, a property is created in the VO, and set to undefined. 
+        (variable is hoisted in Javascript)
 2. creation of Scope Chain
 3. Determine value of the "this" variable
 
@@ -53,7 +55,7 @@ The code of the function that generate the current EC is ran line by line.
 Scope Chain:
 Scoping answer the question "where can we access a certain variable?"
 
-Each new funciton creates a scope. (not for block, if block like some other programming language.)
+Each new funciton creates a scope. (not for block, "if" block or "for" block like some other programming language.)
 create a new function is the only way to create a new scope.
 
 Lexical scoping: a funciton that is lexically within another funciton gets access to the scope of the outer function.
