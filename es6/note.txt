@@ -1,0 +1,4 @@
+ES6/ES2015
+ES6 compatibility table
+http://kangax.github.io/compat-table/es6/
+
