@@ -135,7 +135,7 @@ var john = {
     presentation: function(style, timeOfDay){
         if(style === 'formal'){
             console.log('Good ' + timeOfDay + ', Ladies and Gentlemen! I \'m ' + 
-            this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.');
+            this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.');//Note, here, 'this' keyword.
         }else if(style === 'friendly'){
             console.log('Hey! What\'s up? I \'m ' + 
             this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '.');
