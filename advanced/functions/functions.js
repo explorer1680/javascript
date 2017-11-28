@@ -159,8 +159,10 @@ var emily = {
 john.presentation.call(emily, 'friendly', 'afternoon'); //first parameter is this element,
 
 //apply method: it set first paramter for 'this', second parameter as array.
-//this is not working because our method don't expect array, but, it is throw error.
+//this is not working because our method don't expect array, but, it is throw error.(it is working)
+console.log('------------------------------apply---------------------------------');
 john.presentation.apply(emily, ['friendly', 'afternoon']); 
+console.log('------------------------------apply---------------------------------');
 
 //bind, bind allow us to preset some arguments.
 var johnFriendly = john.presentation.bind(john, 'friendly'); //here, you just provide the first parameter, and get a function.
