@@ -2,7 +2,15 @@
 //Lecture: EC object
 var name = 'John';
 
-console.log(name ===window.name);
+console.log(name ===window.name);//it is possible that window has a property called name, and its value is 'John'
+//using object to test, primitive variable compare value, object comare reference.
+
+var obj1 = {
+    name: 'a',
+    value: 'b'
+}
+console.log(obj1 ===window.obj1);
+console.log(obj1 == window.obj1);
 
 //Lecture: Hosting
 
@@ -42,7 +50,7 @@ console.log(age); //hoisting for variable will set to undefined
 var age = 23;
 console.log(age);
 
-//for un declared var, it is an error.
+//for undeclared var, it is an error.
 // console.log(notdeclared);
 
 foo();
@@ -72,6 +80,7 @@ function first(){
     function second(){
         var c = 'Hey!';
         console.log(a + b + c);
+        console.log(this);
     }
 }
 
