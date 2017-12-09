@@ -17,14 +17,19 @@ function yearsUntilRetirement(name, yearOfBirth){
 
 yearsUntilRetirement('John', 1971);
 
+someFun('a');
+// someFun2('b');
+
 //function statement: it just perform an action, it does not produce an immediate result.
 function someFun(par){
     //code
+    console.log('I am in function statement!');
 }
 
 //function expression: it produce a value and outcome.
-var someFun = function(par){
+var someFun2 = function(par){
     //code
+    console.log('I am in function expression!');
 }
 
 //Expressions
@@ -35,3 +40,9 @@ var x = 3;
 if(x === 5 ){
     //do something
 }
+
+console.log(someFun);
+console.log(someFun2);
+
+console.log(someFun());
+console.log(someFun2());
