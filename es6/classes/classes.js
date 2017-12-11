@@ -32,6 +32,7 @@ class Person6 {
     //ES6 also have static method.
     static greeting(){
         console.log('Hey there!');
+        console.log(this);//here, this is not point to Windows object, it point to Person6.
     }
 }
 

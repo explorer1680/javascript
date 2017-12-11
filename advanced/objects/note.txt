@@ -2,12 +2,16 @@ In JavaScript, Everything is an object. (well, almost everything)
 we have primitives and objects.
 Arrays, Functions are all objects in javascript.
 
-constructor or prototype(in another programming language, it is called class)
- Cosntructor --> instances
+constructor or prototype(they are same in javascript, (in another programming language, it is called class)
+ Constructor --> instances
 
 Inheritance
 
-Note, the Inheritance here is not same as java. It like static method or field in java.
+javascript is a prototype based language, it means the inheritance works by using something called prototype.
+it means, each and every javascript objects has a prototype property.
+
+(Note, the Inheritance here is not same as java. It like static method or field in java.) this statement may not correct.
+
 Here, the constructor is 'Class' in java.
 The instance of constructor has a '__proto__' property, you can check this by javascript console;
 The constructor has a 'prototype' property, you can set this property in javascript;
@@ -17,15 +21,17 @@ When you define method or property in Person2's 'prototype' property
 These method or property are available to all Person2's instance.
 This is call inheritance of javascript.
 
-javascript is a prototype based language, it means the inheritance works by using something called prototype.
-it means, each and every javascript objects has a prototype property,
+it seems that the constructor method automatically added to prototype.
+
 
 The Person object is constructor(constructor is also a object), and John is its instance.
-If we want to John to inheritance a method or property from the Person object, have have to add that method or property to Person's
+If we want to John to inheritance a method or property from the Person object, we have to add that method or property to Person's
 prototype property.
-Note here, the Person's prototype is not the prototype of the Person itself, but of all instance created by Person's constructor.
+following statement is not very clear, it means the when you define something inside Person's prototype property, 
+these method or property are used by its instance not by itself.
+(Note here, the Person's prototype is not the prototype of the Person itself, but of all instance created by Person's constructor.
 the Person's(constructor's) prototype property is prototype of its instances.
-Person itself is an instance of bigger constructor (object).
+Person itself is an instance of bigger constructor (object).)
 
 the prototype chain:
 javascript search method or property in its own first, if it can't find it, it will try to find it in its prototype, 
@@ -40,6 +46,10 @@ operation:
 chean the code in console. (press the first icon in 'Console')
 the '__proto__' is the prototype of the instance, which is the prototype property of the constructor.
 
+in Chrome console, the '__proto__' show the prototype chain.
+'__proto__: Person' not means this object's prototype is of type Person, it show the chain, search in '__proto__' then search in 
+Person's prototype.
+
 we can do this:
 john2.hasOwnProperty('job'): true
 john2.hasOwnProperty('lastName'): false
@@ -49,6 +59,8 @@ john2 instanceof Person2: true ('instanceof' is keyword)
 Object.create()
 this method create instance with the prototype as the first parameter.
 the function constructor way create instance with the prototype as the Person's 'prototype' property.
+
+
 
 primitives vs object.
 the big difference between them is the variable containing the primitives holding that data inside the variable itself.
