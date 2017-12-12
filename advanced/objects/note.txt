@@ -11,6 +11,9 @@ javascript is a prototype based language, it means the inheritance works by usin
 it means, each and every javascript objects has a prototype property.
 
 (Note, the Inheritance here is not same as java. It like static method or field in java.) this statement may not correct.
+You can still expect the same idea of inheritance as Java, but, 
+1. the inheritance in javascript is not limited to that idea, anything related with prototype is inheritance in javascript.
+2. the inheritance in done by prototype in javascript.
 
 Here, the constructor is 'Class' in java.
 The instance of constructor has a '__proto__' property, you can check this by javascript console;

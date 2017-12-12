@@ -60,7 +60,9 @@ function interviewQuestion(job){
 var teacherQuestion = interviewQuestion('teacher');
 
 console.log(teacherQuestion);
+console.log("teacherQuestion('John');------------");
 teacherQuestion('John');
+console.log("console.log(teacherQuestion('John'));------------");
 console.log(teacherQuestion('John'));
 
 var desingerQuestion = interviewQuestion('designer');
@@ -89,7 +91,7 @@ game();
 )();
 
 //following is function declaration, but it has no name, it will through error.
-// function(){}
+// function(){};
 
 //put it into a (), is a trick, javascript will treat everything inside of () as expression.
 (function(){});

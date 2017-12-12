@@ -16,7 +16,7 @@ var Person = function(name, yearOfBirth, job){
         console.log(2017-this.yearOfBirth);
     }   
     return '123';
-    // return new Person2('HHH', 2000, 'BBB');//you can use Person2 inside of Person.
+    // return new Person2('HHH', 2000, 'BBB');//you can't use Person2 inside of Person. Maybe you can use it by move Person2 inside of Person.
     // return john22;
 }
 
@@ -47,6 +47,9 @@ console.log(john12);
 calculateAge();//this works.
 
 console.log(Person);
+//Here, when you log Person, it just show the soure code, but, Person is an Object, you can log its
+console.log(Person.prototype);
+
 
 
 var jane = new Person('Jane', 1969, 'designer');
