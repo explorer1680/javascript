@@ -57,8 +57,9 @@ var box5 = {
     position: 1,
     clickMe: function(){//this is method call, 'this' keyword point to its object.
     console.log(this);
-        document.querySelector('.green').addEventListener('click', function(){//this is function call, 
+        document.querySelector('.green').addEventListener('click', function(e){//this is function call, 
             //'this' keyword point global object, which is window object(the 'div' object)
+            console.log(e);//'e' means event
             var str = 'This is box number ' + this.position + ' and it is '+ this.color;//this is not in global scope, not under document object directly.
             console.log(this); //you can see it is 'div' object defined in html(Window.document.body.children.div), but not 'Window' itself.
             alert(str);
@@ -66,7 +67,7 @@ var box5 = {
     }
 }
 
-box5.clickMe();
+// box5.clickMe();
 
 //following is a work arround in ES5 for this situation:
 
@@ -112,7 +113,7 @@ const box62 = {
     }
 }
 
-// box62.clickMe();
+box62.clickMe();
 
 function Person(name){
     this.name = name;
@@ -122,10 +123,14 @@ function Person(name){
 Person.prototype.myFriends5 = function(friends){
 
     var arr = friends.map(function(el){
+        // console.log(this);
         return this.name + ' is frients with ' + el; 
         
     }.bind(this));//another trick that we can use here is bind()
+    //here, bind method will return an new function, and it can only bind one time, that means if you bind the returned new function with 
+    //a new object, it will not change, but, that not means the bind can't be dynamic, here, the 'this' is dynamic to different object.
 
+    console.log(this);
     console.log('the \'this\' in prototype is what you want: '+ this.name);
     console.log(arr);
 }
