@@ -174,3 +174,17 @@ johnFriendly('night');
 
 var emilyFormal = john.presentation.bind(emily, 'formal');
 emilyFormal('afternoon');
+
+
+console.log('in function showBind()------');
+function showBind(){
+    console.log(this);
+};
+
+showBind();
+
+showBind.bind(emily)();
+
+(function showBind(){
+    console.log(this);
+}.bind(emily))();

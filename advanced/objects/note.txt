@@ -50,8 +50,9 @@ chean the code in console. (press the first icon in 'Console')
 the '__proto__' is the prototype of the instance, which is the prototype property of the constructor.
 
 in Chrome console, the '__proto__' show the prototype chain.
-'__proto__: Person' not means this object's prototype is of type Person, it show the chain, search in '__proto__' then search in 
-Person's prototype.
+'__proto__: Person' not means this object's prototype is of type Person, (it show the chain, search in '__proto__' then search in 
+Person's prototype) not correct.
+It means this object's '__proto__' is Person.prototype.
 
 we can do this:
 john2.hasOwnProperty('job'): true
