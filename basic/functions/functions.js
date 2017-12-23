@@ -19,6 +19,8 @@ yearsUntilRetirement('John', 1971);
 
 someFun('a');
 // someFun2('b');
+console.log(someFun);//Here, someFun is a function.
+console.log(someFun2);//Here, someFun2 is undefined.
 
 //function statement: it just perform an action, it does not produce an immediate result.
 function someFun(par){
@@ -41,8 +43,8 @@ if(x === 5 ){
     //do something
 }
 
-console.log(someFun);
-console.log(someFun2);
+console.log(someFun);//Here, someFun is a function, same as above.
+console.log(someFun2);//Here, someFun2 is a function, it is different from above.
 
 console.log(someFun());
 console.log(someFun2());
