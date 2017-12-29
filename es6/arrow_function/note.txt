@@ -1,0 +1,3 @@
+the 'this' key word in function sometimes confuse people, here is the detailed explaination:
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this

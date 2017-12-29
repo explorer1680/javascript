@@ -38,7 +38,7 @@ for(const cur of boxesArr6){//of loop
 //old: indexOf, new: findIndex, find
 
 //ES5
-var ages=[12,17, 8, 21, 14, 11];
+var ages=[12,17, 8, 21, 14, 31];
 var full = ages.map(function(cur){
     return cur >= 18;
 });

@@ -5,7 +5,7 @@ console.log('------------------let and const-----------------');
 // ES5
 var name5 = 'Jane Smith';
 var age5 = 23;
-names = 'Jane Miller';//we can change it.
+name5 = 'Jane Miller';//we can change it.
 console.log(name5);
 
 //ES6
@@ -36,16 +36,20 @@ function driversLicence5(parssedTest){
 
 driversLicence5(true);
 
-// let firstName = 'a';
+// let firstName = 'a'; // place 1
 // const yearOfBirth = 2990;//these variables still available to following console.log() outside of block.
 
 //ES6
 function driversLicence6(parssedTest){
     if(parssedTest){
-        // console.log(firstName);// here is error: firstName is not defined
+        // console.log(firstName); // place 2
+        // experiment here when not comment out place 2:
+        // comment out place 1: Error: firstName is not defined
+        // not comment out place 1, not comment out place 3:  Error: firstName is not defined
+        // not comment out place 1, comment out place 3: it is not an error.
         // here is something call temporal dead zone, that means the variables are hoisted,
         // but we can't access variable before it is declared.
-        let firstName = 'John';
+        let firstName = 'John'; // place 3
         const yearOfBirth = 1990;
 
         console.log(firstName + ' born in ' + yearOfBirth + ', is now offcially allowed to drive a car.');

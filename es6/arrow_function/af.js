@@ -11,6 +11,14 @@ var ages5 = years.map(function(el){
 
 console.log(ages5);
 
+function agefun2(el){
+    return 2017 - el;
+}
+
+var ages52 = years.map(agefun2);//if you define function separately, you can pass it like this.
+console.log(ages52);
+
+
 //ES6
 
 let ages6 = years.map(el => 2017 -el);//el is argument, '=>' is operator, '2017 - el' is return statement.
@@ -48,8 +56,10 @@ var box5 = {
     color: 'green',
     position: 1,
     clickMe: function(){//this is method call, 'this' keyword point to its object.
-        document.querySelector('.green').addEventListener('click', function(){//this is function call, 
+    console.log(this);
+        document.querySelector('.green').addEventListener('click', function(e){//this is function call, 
             //'this' keyword point global object, which is window object(the 'div' object)
+            console.log(e);//'e' means event
             var str = 'This is box number ' + this.position + ' and it is '+ this.color;//this is not in global scope, not under document object directly.
             console.log(this); //you can see it is 'div' object defined in html(Window.document.body.children.div), but not 'Window' itself.
             alert(str);
@@ -61,17 +71,17 @@ var box5 = {
 
 //following is a work arround in ES5 for this situation:
 
-// var box5 = {
-//     color: 'green',
-//     position: 1,
-//     clickMe: function(){
-//         var self = this;
-//         document.querySelector('.green').addEventListener('click', function(){
-//             var str = 'This is box number ' + self.position + ' and it is '+ self.color;
-//             alert(str);
-//         })
-//     }
-// }
+var box5 = {
+    color: 'green',
+    position: 1,
+    clickMe: function(){
+        var self = this;
+        document.querySelector('.green').addEventListener('click', function(){
+            var str = 'This is box number ' + self.position + ' and it is '+ self.color;
+            alert(str);
+        })
+    }
+}
 
 // box5.clickMe();
 
@@ -88,22 +98,22 @@ const box6 = {
     }
 }
 
-box6.clickMe();
+// box6.clickMe();
 
-// const box62 = {
-//     color: 'green',
-//     position: 1,
-//     clickMe: () => {//this time, method is also defined by arrow function.
-//         //then, it share the lexical 'this' variable from its surroundings.
-//         //so, in here, you should not use arrow function.
-//         document.querySelector('.green').addEventListener('click', () => {
-//             var str = 'This is box number ' + this.position + ' and it is '+ this.color;
-//             alert(str);
-//         })
-//     }
-// }
+const box62 = {
+    color: 'green',
+    position: 1,
+    clickMe: () => {//this time, method is also defined by arrow function.
+        //then, it share the lexical 'this' variable from its surroundings.
+        //so, in here, you should not use arrow function.
+        document.querySelector('.green').addEventListener('click', () => {
+            var str = 'This is box number ' + this.position + ' and it is '+ this.color;
+            alert(str);
+        })
+    }
+}
 
-// box62.clickMe();
+box62.clickMe();
 
 function Person(name){
     this.name = name;
@@ -113,10 +123,14 @@ function Person(name){
 Person.prototype.myFriends5 = function(friends){
 
     var arr = friends.map(function(el){
+        // console.log(this);
         return this.name + ' is frients with ' + el; 
         
     }.bind(this));//another trick that we can use here is bind()
+    //here, bind method will return an new function, and it can only bind one time, that means if you bind the returned new function with 
+    //a new object, it will not change, but, that not means the bind can't be dynamic, here, the 'this' is dynamic to different object.
 
+    console.log(this);
     console.log('the \'this\' in prototype is what you want: '+ this.name);
     console.log(arr);
 }
@@ -132,7 +146,7 @@ Person.prototype.myFriends6 = function(friends){
 
     // var arr = friends.map(el =>{ 
     //     return this.name + ' is frients with ' + el; 
-    // });//when only only line, we can do like this:
+    // });//when only line, we can do like this:
 
     var arr = friends.map(el => this.name + ' is frients with ' + el);//also, you can use template literals.
     //again, the arrow function's 'this' keyword is from surrounding function, which is under Person's prototype.

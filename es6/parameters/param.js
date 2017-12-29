@@ -9,6 +9,9 @@
 function isFullAge5(){
     console.log(arguments);//arguments is a keyword, it is similar to the 'this' keyword, each Execution Context get access to.
     //it is looks like Array, but it is not an Array. compare with the following output.
+    //Here, we use Array.prototype.slice not Array.slice
+    //the reason is array like [1,2], has the method slice, actully, it is and object of Array, and inheritence the slice() method for Array.prototype.
+    //https://stackoverflow.com/questions/7056925/how-does-array-prototype-slice-call-work
     var argsArr = Array.prototype.slice.call(arguments);
     console.log(argsArr);
     argsArr.forEach(function(cur){
