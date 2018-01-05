@@ -21,8 +21,10 @@ myFirstPromise
     // successMessage is whatever we passed in the resolve(...) function above.
     // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
     console.log("Yay! " + successMessage);
-}, 
-(rejected) => { console.log("Fall! " + rejected) })//here, you define the second method in then(), it is same as define it in catch().
+},
+// ) 
+(rejected) => { console.log("Fall! " + rejected) })//you can define a second method in then(), it is same as define it in catch().
+//if you have a second method in then(), catch() will never reached. You need only one of them.
 .catch((error) => {
     console.log(error);//
 });
