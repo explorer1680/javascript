@@ -188,3 +188,13 @@ showBind.bind(emily)();
 (function showBind(){
     console.log(this);
 }.bind(emily))();
+
+console.log('--------another test--------');
+var jack = {
+    name: 'Jack',
+    age: 35,
+    job: 'designer'
+}
+var jackFormal = emilyFormal.bind(jack, 'formal');
+jackFormal('afternoon');
+//bind can only one time.

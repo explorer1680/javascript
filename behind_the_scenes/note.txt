@@ -5,7 +5,7 @@ behind  the scene:
 Javascript engine take our code and executed. Javascript engine is a program that execute Javascript code.
 example is Google V8 engine, used in Google Chrome.
 
-in engine, our code is parse by a parser, read our code line by line, and check the syntax. 
+in engine, our code is parsed by a parser, read our code line by line, and check the syntax. 
 It throw an error and stop the execution if it found the error.
 
 If everything good, it produce a "Abstract Syntax Tree".
@@ -67,7 +67,7 @@ Scope Chain is the chain (order, direction) javascript try to find the variable 
 
 "this" variable store the EC object.
 in regular funciton call: 'this' keyword point at the global object (the window object, in the browser).
-method call: 'this' points to the object that is calling  the method.
+method call: 'this' points to the object that is calling the method.
 Note: 'this' keyword is not assigned a value until a function where it is defined is actually called.
 
 Note:

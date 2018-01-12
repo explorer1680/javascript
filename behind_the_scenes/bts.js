@@ -52,11 +52,14 @@ console.log(age);
 
 //for undeclared var, it is an error.
 // console.log(notdeclared);
+// but, you can see this is an run time error, it not stop the code above it to run.
+// following is parse time error, it will stop the whole code to run.
+//vars a = 1;
 
 foo();
 function foo(){
     console.log('inside foo(): ' + age);//note here, if you don't define 'age' inside of this function, 
-    //it will not go to global EC to get 'age', but, if you have defined 'age' inside of this funciotn,
+    //it will go to global EC to get 'age', but, if you have defined 'age' inside of this funciotn,
     //it will using the 'age' inside of function, that why it show 'undefined' here, when you comment out
     //the following definition, it will show 23. 
     console.log('inside foo(): ' + name);//note here, it will go to global EC to get 'name'
