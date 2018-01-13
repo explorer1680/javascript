@@ -183,18 +183,11 @@ function showBind(){
 
 showBind();
 
-showBind.bind(emily)();
+showBind.bind(emily)();//bind not only used for function with parameters, it also works with functions without parameters.
 
-(function showBind(){
+showBind.bind(emily).bind(john)();//it can only bind once.
+
+(function (){
     console.log(this);
 }.bind(emily))();
 
-console.log('--------another test--------');
-var jack = {
-    name: 'Jack',
-    age: 35,
-    job: 'designer'
-}
-var jackFormal = emilyFormal.bind(jack, 'formal');
-jackFormal('afternoon');
-//bind can only one time.

@@ -59,6 +59,9 @@ class Person6 {
     }
 }
 
+var john6 = new Person6('John', 1995, 'engineer');
+console.log(john6);
+
 class Athlete6 extends Person6 {
     constructor(name, yearOfBirth, job, olymicGames, medals) {
         super(name, yearOfBirth, job);
