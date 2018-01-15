@@ -1,0 +1,9 @@
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+
+Symbol function is new for es6.
+
+TypeScript has enum:
+http://2ality.com/2016/01/enumify.html
+
+es6 has Enum:
+https://www.npmjs.com/package/es6-enum
