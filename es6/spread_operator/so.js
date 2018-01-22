@@ -32,7 +32,7 @@ const all = [h, ...boxes];
 
 Array.from(all).forEach(cur => cur.style.color = 'purple');
 
-
+//Spread in object literals:
 //this operator also works for object, it is used to copy the object, and keep the last one.
 //this is used in ngrx to update the store.
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator
