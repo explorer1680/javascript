@@ -38,5 +38,5 @@ Array.from(all).forEach(cur => cur.style.color = 'purple');
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator
 obj1={a:'a', b:'b'};
 obj2={a:1, b:2};
-copyed={...obj1, ...obj2, b:'12'};
+copyed={...obj1, ...obj2, b:'12'};//the later defined property will win, this is not a special syntax
 console.log(copyed);
