@@ -31,3 +31,12 @@ const boxes = document.querySelectorAll('.box');
 const all = [h, ...boxes];
 
 Array.from(all).forEach(cur => cur.style.color = 'purple');
+
+//Spread in object literals:
+//this operator also works for object, it is used to copy the object, and keep the last one.
+//this is used in ngrx to update the store.
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator
+obj1={a:'a', b:'b'};
+obj2={a:1, b:2};
+copyed={...obj1, ...obj2, b:'12'};
+console.log(copyed);
