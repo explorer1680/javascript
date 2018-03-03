@@ -10,3 +10,8 @@ boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
 for(const cur of boxesArr6){
 
 map method is very popular.
+
+//loop in javascript:
+https://stackoverflow.com/questions/9329446/for-each-over-an-array-in-javascript/9329476
+please note:
+for-in may cause problems.
