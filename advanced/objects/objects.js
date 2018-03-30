@@ -1,11 +1,19 @@
 // Function constructor
 
 var john22  = {
-    name : 'John22',
-    yearOfBirth: 1996,
+    name : 'John222',
+    yearOfBirth: this.name,//this is weird, why sometimes it show 'John12' sometimes it show "", is this a bug for chrome?
+    //there is some kind of interfere with 'John12' defined bellow:
+    //the conclusion: 'this' key word in here is not point john22 itself.
+    abc: 'abc',
+    j: this.abc,// this j is always show undined.
     job: 'teacher',
-    calculateAge: function(){console.log('I am just a fick function.')}
+    getInfo: function(){return '123'},
+    calculateAge: function(param){console.log(this.yearOfBirth + ' ' + param)}
 }
+
+console.log(john22);
+john22.calculateAge('abc');
 
 //Capital letter means function constructor
 var Person = function(name, yearOfBirth, job){
