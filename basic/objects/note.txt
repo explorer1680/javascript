@@ -1,0 +1,4 @@
+https://stackoverflow.com/questions/8556673/get-javascript-object-property-via-key-name-in-variable
+In javascript:
+you can access method or property by dot or bracket notation.
+when you access method, if you don't have (), it is pass the function, if you have (), it is call the function.
