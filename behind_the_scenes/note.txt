@@ -25,6 +25,7 @@ Note, the function declaration is also inside of global EC.
 
 When call a function in global EC, it will get a new EC "on top of" the global EC. 
 This "on top of" will form a "Execution Stack".
+Note: only funciton call will create a new EC.
 
 When call another function inside of another function's EC, there is one more new EC put "on top of" the "Execution Stack".
 
@@ -36,7 +37,8 @@ EC object has 3 properties:
 2. Scope Chain, contain the current VO as well as the VOs of its parents.
 3. "this" variable.
 
-Creation phase
+2 phase in javascript:
+Creation phase:
 1. creation of the VO
     the argument object is created.
     Hoisting: (funciton and variable are hoisted in Javascript, that means they are available before the execution phase actually start.)
@@ -48,7 +50,7 @@ Creation phase
 3. Determine value of the "this" variable
 
 Execution phase:
-The code of the function that generate the current EC is ran line by line.
+The code of the function that generate the current EC is run line by line.
 
 
 

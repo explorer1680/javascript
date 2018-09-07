@@ -57,6 +57,7 @@ var box5 = {
     position: 1,
     clickMe: function(){//this is method call, 'this' keyword point to its object.
     console.log(this);
+    console.log(document.querySelector('.green'));
         document.querySelector('.green').addEventListener('click', function(e){//this is function call, 
             //'this' keyword point global object, which is window object(the 'div' object)
             console.log(e);//'e' means event
@@ -67,7 +68,7 @@ var box5 = {
     }
 }
 
-// box5.clickMe();
+box5.clickMe();
 
 //following is a work arround in ES5 for this situation:
 
@@ -88,7 +89,7 @@ var box5 = {
 //ES6
 
 const box6 = {
-    color: 'green',
+    color: 'greens',
     position: 1,
     clickMe: function(){
         document.querySelector('.green').addEventListener('click', () => {
@@ -113,7 +114,7 @@ const box62 = {
     }
 }
 
-box62.clickMe();
+// box62.clickMe();
 
 function Person(name){
     this.name = name;

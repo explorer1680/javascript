@@ -2,3 +2,6 @@
 https://stackoverflow.com/questions/9329446/for-each-over-an-array-in-javascript/9329476
 please note:
 for-in may cause problems.
+
+forEach(ES5)
+for(name of names)(ES6)

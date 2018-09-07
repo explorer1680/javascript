@@ -181,6 +181,7 @@ function showBind(){
     console.log(this);
 };
 
+console.log(showBind);
 showBind();
 
 showBind.bind(emily)();//bind not only used for function with parameters, it also works with functions without parameters.
@@ -191,3 +192,7 @@ showBind.bind(emily).bind(john)();//it can only bind once.
     console.log(this);
 }.bind(emily))();
 
+// both format works
+(function (){
+    console.log(this);
+}).bind(emily)();
