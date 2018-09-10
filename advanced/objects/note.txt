@@ -61,7 +61,7 @@ john2.hasOwnProperty('lastName'): false
 john2 instanceof Person2: true ('instanceof' is keyword)
 
 Object.create()
-this method create instance with the prototype as the first parameter.
+this method create instance with the prototype defined by object passed as the first parameter of create method.
 the function constructor way create instance with the prototype as the Person's 'prototype' property.
 
 
@@ -91,12 +91,14 @@ var personProto = {
 
 var john3 = Object.create(personProto);
 
-2 and 3 is same.
+2 and 4 are same.
 
 do we have a way to create object like:
 var x = Person.create(); //or
 var x = Person.create(personProto);
 no, it is a runtime error.
+Basically, the Person is an function object, we(I) can't find a way to define a function for a function objects.
+In, ES6, classes, the static method is a way to do it.
 
 primitives vs object.
 the big difference between them is the variable containing the primitives holding that data inside the variable itself.

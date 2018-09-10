@@ -13,6 +13,7 @@ function isFullAge5(){
     //the reason is array like [1,2], has the method slice, actully, it is and object of Array, and inheritence the slice() method for Array.prototype.
     //https://stackoverflow.com/questions/7056925/how-does-array-prototype-slice-call-work
     var argsArr = Array.prototype.slice.call(arguments);
+    // var argsArr = arguments.slice();//this is not working, arguments is not an Array.
     console.log(argsArr);
     argsArr.forEach(function(cur){
         console.log((2017-cur) >= 18);

@@ -27,11 +27,16 @@ var Person = function(name, yearOfBirth, job){
     this.job = job;
     this.calculateAge = function(){//in here, each instance will have this function(each one will have its own function), it is not inheritance.
         console.log(2017-this.yearOfBirth);
-    }   
+    }
+    this.create = function(){
+        console.log('I am here');
+    }
+       
     return '123';
     // return {a: 'a', b: 'b'};
     // return new Person2('HHH', 2000, 'BBB');//you can't use Person2 inside of Person. Maybe you can use it by move Person2 inside of Person.
     // return john22;
+
 }
 
 //instantiation
@@ -102,7 +107,10 @@ console.log(john2.__proto__ === Person2.prototype);
 var personProto = {
     calculateAge: function(){
         console.log(2017 - this.yearOfBirth);
-    }
+    },
+    calculateAge2: function(){},
+    a: 'a'
+
 }
 
 var john3 = Object.create(personProto);
@@ -120,8 +128,10 @@ var jane3 = Object.create(personProto,{
 
 console.log(jane3)
 
-var john1234 = (new Person('John12', 1000, 'aaa')).create();
-console.log(john1234);
+// var john1234 = (new Person('John12', 1000, 'aaa')).create();
+Person('John12', 1000, 'aaa').create();
+// john1234.create();
+// console.log(john1234);
 
 //Primitives vs Objects
 

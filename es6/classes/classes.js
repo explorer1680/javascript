@@ -1,3 +1,22 @@
+//create object method1:
+var a = {
+    a: 'a',
+    b: 'b',
+    m: function(){
+        console.log(this.a + this.b);
+    }
+}
+console.log(a);
+
+//create object method2:
+var b = new Object();
+b.a = 'a';
+b.b = 'b';
+b.m = function(){
+    console.log(this.a + this.b);
+}
+console.log(b);
+
 //Class don't add anything new to Javascript, it is just syntax sugar to prototypes in heritance 
 //In ES5, we build function constructors, and add method to their prototype property
 
@@ -45,6 +64,8 @@ console.log(john6);
 // john6.greeting();
 
 //You can call it:
+console.log(Person6);
+console.log(Person6.greeting);
 Person6.greeting();
 //basically, Person6 class is function, function is an object, you can attach an method to an object.
 
