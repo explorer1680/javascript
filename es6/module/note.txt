@@ -1,0 +1,13 @@
+ES6 support javascript module.
+but, this feature are not supported by modern browser. you have to use webpack to bundle them to 1 js file to let them work.
+
+
+module is just a normal .js file, but, it can export and import.
+
+export default 'xxx';
+export const add = (a, b) => a + b;
+ex
+
+import string from './xxx/name';
+
+import 

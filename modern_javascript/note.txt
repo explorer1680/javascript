@@ -1,0 +1,27 @@
+Babel:
+is a javascript compiler.
+translate ES6/ESNext to ES5.
+polyfill: when ES6 translate to ES5, some of the feature of ES6 that ES5 don't have, it is no way to convert them directly to ES5.
+We have to mimic the function of these feature in ES5, it is call 'polyfill'. 
+(we write some code in ES5 to implements these functions.)
+For example, "Promise" object or Array.from, ES5 don't have thess object.
+
+ES6 Module bundler: webpack, it will bundle all files into 1 .js file, 1 .css file, and image files: .jpg files, and .png files.
+
+npm(node package manager) put all these together.
+
+npm command:
+npm init: to create a package.json file.
+npm install webpack --save-dev: 'save-dev' means it will save webpack as a development dependancy of our project.
+it will add 'webpack' in the package.json under the "devDependencies".
+npm install jquery --save: it will add 'jquery' in the package.json usner the "dependancies".
+
+node_modules contains all the dependancies defined in package.json and the dependancies of them(dependancies o webpack and jquery).
+
+to share the project with others, we only need share the package.json file, and run:
+npm install
+all the file will be installed in the node_modules dir.
+
+npm uninstall jquery --save: it will uninstall jquery from "dependancies"
+npm install live-server --global: it will save the package gloally, which means all project in this machine can access it.
+--save or --save-dev are locally accessible, only this project can use it.

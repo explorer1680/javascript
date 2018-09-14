@@ -1,0 +1,1 @@
+export const str = 'I am a default string';
