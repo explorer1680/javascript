@@ -6,8 +6,8 @@ module is just a normal .js file, but, it can export and import.
 
 export default 'xxx';
 export const add = (a, b) => a + b;
-ex
+
 
 import string from './xxx/name';
 
-import 
+to look at the result, please see the example in src and dist.
