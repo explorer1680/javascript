@@ -66,6 +66,8 @@ console.log(John.family[2]);
 
 console.log(John.calculateAge);
 console.log(John.calculateAge());//Object can cantain functions, and these functions are called methods.
+console.log(John['calculateAge']);
+console.log(John['calculateAge']());//here is same as property
 console.log(John.calculateAge(1970)); // You see here, even you add a extra parameter to method, it still working.
 //Array's function 'pop()', 'push()' also called methods.
 

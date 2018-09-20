@@ -1,0 +1,1 @@
+localStorage.setItem() take param Id and value, but they should by String.
