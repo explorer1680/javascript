@@ -91,7 +91,7 @@ var personProto = {
 
 var john3 = Object.create(personProto);
 
-2 and 4 are same.
+2 and 4 are same. (not same, 2 use key word 'new', 4 use Object.create())
 
 do we have a way to create object like:
 var x = Person.create(); //or
