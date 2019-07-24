@@ -16,3 +16,7 @@ https://stackoverflow.com/questions/19915688/what-exactly-is-type-coercion-in-ja
 Chrome console using different color for different data type.
 
 console has prompt and alert function.
+
+
+javascript undefined vs null vs NaN:
+https://codeburst.io/understanding-null-undefined-and-nan-b603cb74b44c
