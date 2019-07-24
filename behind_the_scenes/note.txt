@@ -18,7 +18,7 @@ Please note, above is just a simple introduction, and different engine do things
 Execution Context:
 The default execution context, the global EC:
     code that is not inside any function
-    you can think of EC is an object, then the global EC is associated with the global object in the browser, that's the window object
+    you can think of EC is an object, then the global EC is associated with the global object in the browser, that's the window object (global EC is Window Object)
     (everything we declare in global EC, is automatically attached to the window object as a property)
 
 Note, the function declaration is also inside of global EC.
@@ -43,9 +43,9 @@ Creation phase:
     the argument object is created.
     Hoisting: (funciton and variable are hoisted in Javascript, that means they are available before the execution phase actually start.)
         code is scanned for function declarations, for each function, a property is created in the VO, pointing to the function. 
-        (funciton is hoisted in Javascript)
+        (funciton is hoisted in Javascript)(you can call function in the place before its definition, it still works)
         code is scanned for variable declarations, for each variable, a property is created in the VO, and set to undefined. 
-        (variable is hoisted in Javascript)
+        (variable is hoisted in Javascript)(you can use variable in the place before its definition, it will return undefined)
 2. creation of Scope Chain
 3. Determine value of the "this" variable
 

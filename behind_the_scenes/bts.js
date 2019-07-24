@@ -14,7 +14,7 @@ var obj1 = {
 console.log(obj1 ===window.obj1);
 console.log(obj1 == window.obj1);
 
-//Lecture: Hosting
+//Lecture: Hoisting
 
 //funcitons:
 
@@ -33,9 +33,11 @@ function calculateAge(year){
 // for function expression, calling it before is not working.
 // retirement(1990);
 
+console.log(retirement);
 
 
 //here is function expression, Hoisting is only work for function declarations.
+//it is a variable, so, the value for it is set to undefined.
 var retirement = function(year){
     console.log(65 - (2017- year));
 }
@@ -56,7 +58,7 @@ console.log(age);
 // console.log(notdeclared);
 // but, you can see this is an run time error, it not stop the code above it to run.
 // following is parse time error, it will stop the whole code to run.
-//vars a = 1;
+// vars a = 1;
 
 // following is not an error:
 // notdeclared = 5;
@@ -90,13 +92,14 @@ console.log(age);
 //Lecture: Scoping
 console.log('-------------------Scoping--------------------');
 var a = 'Hello!';
-first();
+a111();
 
-function first(){
+function a111(){
     var b = 'Hi!';
-    second();
+    a222();
 
-    function second(){
+    function a222(){//you can find function a111 inside of Window object, but, you can't find a222 in Window nor inside of a111 object.
+    //although, 'this' keyword inside of function a222 point to window object, you can't find it inside of Window object.
         var c = 'Hey!';
         console.log(a + b + c);
         console.log(this);

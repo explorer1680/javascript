@@ -85,7 +85,7 @@ John2 = {
     // job: 'teacher',
     // isMarried: false,
     // family: ['Jane', 'Mark', 'Bob'], 
-    calculateAge: function(){ //a want to save to age property after calculation.
+    calculateAge: function(){ //you want to save to age property after calculation.
         // return 2017 -  this.yearOfBirth; 
         this.age = 2018 - this.yearOfBirth;//here, we don't use return statement.
     }
@@ -98,9 +98,11 @@ console.log(John2);
 
 John2.calculateAge();// you have to call the method to get age property, 
 //but, the above log() and next log() will have same output.
-//Actually, this is not correct. The reason why it looks the same because you click on console to see the details.
+//Actually, this is not correct. The reason why it looks the same because you expend the object to see the details.
 //If you comment out some properties from John2, make the display shorter, you will see it is not the same.
 //This happens in Arrays test, when you see the output of John, it looks different, but,
-//when you click to see the details, they are same.
+//when you click to expend the object see the details, they are same.
+//The reason why: when you reload the page, the program run, the output is status at running time, when you click to expend, the status will change to last moment, they are same now.
+
 
 console.log(John2);
