@@ -2,8 +2,10 @@
 //Lecture: EC object
 var name = 'John';
 
-console.log(name ===window.name);//it is possible that window has a property called name, and its value is 'John'
+console.log(name ===window.name);//it is possible that window has a property called name, and its value is 'John'(not correct)
+//everything we declare in global EC, is automatically attached to the window object as a property
 //using object to test, primitive variable compare value, object comare reference.
+
 
 var obj1 = {
     name: 'a',
@@ -56,12 +58,26 @@ console.log(age);
 // following is parse time error, it will stop the whole code to run.
 //vars a = 1;
 
+// following is not an error:
+// notdeclared = 5;
+// console.log(notdeclared);
+
+// following is a runtime error
+// function test(){
+//     console.log(abcdef);
+// }
+
+// test();
+
 foo();
 function foo(){
     console.log('inside foo(): ' + age);//note here, if you don't define 'age' inside of this function, 
     //it will go to global EC to get 'age', but, if you have defined 'age' inside of this funciotn,
     //it will using the 'age' inside of function, that why it show 'undefined' here, when you comment out
     //the following definition, it will show 23. 
+    //anthor thing need to notice here, the difference for hoisting of variable and function.
+    //for function, you can use it before the place you define it;
+    //for variable, you get 'undefined' before the place you define it.
     console.log('inside foo(): ' + name);//note here, it will go to global EC to get 'name'
     var age = 65;
     console.log('inside foo(): ' + age);

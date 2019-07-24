@@ -1,0 +1,75 @@
+event, Message queue:
+Message Queue hold event.
+event only can be processed when EC stack is empty.
+event handler process event, it put its EC into the EC stack.
+
+event loop:
+
+
+EC Stack, Event Loop, Message Queue, Web APIs makeup the javascript runtime.
+
+When the first() function called, its EC on the stack.
+then console.log() called, the EC push to stack and pop out.
+then second() called, its EC on the stack.
+then setTimeout() called, its EC on the stack. (Global EC -> first() -> second() -> setTimeout())
+setTimeout() is web APIs, which is live outside of javascript engin itself. 
+DOM manipulate functions, setTimeout, XMLHttpRequest are all Web APIs.
+the setTimeout() create a timer with callback function and set the time 2000ms, and run in web APIs' env.
+then, the setTimeout() popup, second() popup.
+then, console.log() called, then it popup.
+then, first() EC popup.
+when 2000ms passed, the timer dispear, then, the callback function move to the Message Queue to wait for EC Stack empty to execute.
+Same happen to DOM event as well, event handler sit in the Web APIs' env, waiting for certain event to happens, when event happens, 
+the callback function is placed to Message Queue ready to be execute.
+
+Event Loop monitor Message Queue and Execution Stack, it move the first callback function in the line to Execution Stack when the Execution Stack is empty.
+
+Here, the staff put inside of the Message Queue are callback functions.
+
+
+We can see the mechanism of javascript handle asynchronization if different from java.
+They all start the async function(thread) in main function or thread.
+But:
+in java's main thread, you can't define how to use(get) result without stop and wait it finished.
+(if it is a Thread with runnable, you can't get the result from main thread, you depending on that thread to do something in future.
+if you use callable and future, you have to wait in the main thread to get the result.)
+in javascript, you define how to use the result in main function without wait or stop in main function,
+Event Loop and Message Queue will do the job.
+(you define the Promise, use it, and define then() method all in main thread without wait and stop.)
+
+Promise:
+Object that keeps track about whether a certain event has happened already or not.
+Determines what happens after the event has happened.
+Implements the concept of a future value that we're expecting.
+
+Promise status:
+pending, settled or resolved, fulfilled, rejected.
+produce and consume promise.
+produce: create a promise, and send the result to use the promise.
+consume: use the callback function to fulfill or reject a promise.
+new Promise((resolve, reject) =>{
+
+})
+here, resolve and reject are callback functions that will return the Object that passed to them to then() or catch() method.
+when you thought the logic is fulfill, you call resolve function, when you thought the logic is error, you call reject.
+If both of them called, then() is called.
+If no of them called, non of then() or catch() called.
+
+
+async function, await, is from ES7.
+await is to consume a Promise. await expression will stop the code, and wait until it fulfilled. And the result will assign to the variable.
+
+you can only use await inside of async function.
+async function is running in background, use await to stop the code in main code is an error.
+async function can only return an Promise object, if you return an non Promise object, it will wrap the object into a new Promise's resolve function.
+
+AJAX: Asynchronous Javascript And Xml.
+
+
+XMLHttpRequest is a javascript api. (but in above, it is from web api.)
+Fetch is from web browser, not from javascript language itself, it is web APIs.
+
+using https://corsproxy.github.io/ to work arround 
+or using https://cors-anywhere.herokuapp.com/ to work arround
+
+json() method of Response return an Promise object.

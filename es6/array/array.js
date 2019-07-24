@@ -20,6 +20,7 @@ boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
 
 
 //normal for loop, we use forEach, or map, but, we can't 'break' or 'continue' in it.
+//what above meaning?
 //ES5
 // for(var i = 0; i< boxesArr5.length; i++){
 //     if(boxesArr5[i].className === 'box blue'){
@@ -27,13 +28,19 @@ boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
 //     }
 //     boxesArr5[i].textContent = 'I changed to blue!';
 // }
-//EX6
-for(const cur of boxesArr6){//of loop
+for(const cur of boxesArr5){//of loop
     if(cur.className.includes('blue')){
         continue;
     }
     cur.textContent = 'I changed to blue!';
 }
+//EX6
+// for(const cur of boxesArr6){//of loop
+//     if(cur.className.includes('blue')){
+//         continue;
+//     }
+//     cur.textContent = 'I changed to blue!';
+// }
 
 //old: indexOf, new: findIndex, find
 

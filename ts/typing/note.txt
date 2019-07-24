@@ -1,0 +1,1 @@
+you can't use .ts file just like .js file in html.

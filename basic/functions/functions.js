@@ -29,9 +29,10 @@ function someFun(par){
 }
 
 //function expression: it produce a value and outcome.
-var someFun2 = function(par){
+var someFun2 = function(par){//someFun2 is the function name?
     //code
     console.log('I am in function expression!');
+    return par;
 }
 
 //Expressions
@@ -46,5 +47,5 @@ if(x === 5 ){
 console.log(someFun);//Here, someFun is a function, same as above.
 console.log(someFun2);//Here, someFun2 is a function, it is different from above.
 
-console.log(someFun());
-console.log(someFun2());
+console.log(someFun());//here, someFun() don't return any value, so, line49 print undefined.
+console.log(someFun2(2));

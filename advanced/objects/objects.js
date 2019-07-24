@@ -1,5 +1,8 @@
 // Function constructor
 
+console.log(name);
+console.log(this);
+
 var john22  = {
     name : 'John222',
     yearOfBirth: this.name,//this is weird, why sometimes it show 'John12' sometimes it show "", is this a bug for chrome?
@@ -9,7 +12,9 @@ var john22  = {
     j: this.abc,// this j is always show undined.
     job: 'teacher',
     getInfo: function(){return '123'},
-    calculateAge: function(param){console.log(this.yearOfBirth + ' ' + param)}
+    calculateAge: function(param){
+        console.log(this);
+        console.log(this.yearOfBirth + ' ' + param)}
 }
 
 console.log(john22);
@@ -22,10 +27,16 @@ var Person = function(name, yearOfBirth, job){
     this.job = job;
     this.calculateAge = function(){//in here, each instance will have this function(each one will have its own function), it is not inheritance.
         console.log(2017-this.yearOfBirth);
-    }   
+    }
+    this.create = function(){
+        console.log('I am here');
+    }
+       
     return '123';
+    // return {a: 'a', b: 'b'};
     // return new Person2('HHH', 2000, 'BBB');//you can't use Person2 inside of Person. Maybe you can use it by move Person2 inside of Person.
     // return john22;
+
 }
 
 //instantiation
@@ -89,12 +100,17 @@ console.log(john2.lastName);
 console.log(jane2.lastName);
 console.log(mark2.lastName);
 
+console.log(john2.__proto__ === Person2.prototype);
+
 //Ojbect.create
 
 var personProto = {
     calculateAge: function(){
         console.log(2017 - this.yearOfBirth);
-    }
+    },
+    calculateAge2: function(){},
+    a: 'a'
+
 }
 
 var john3 = Object.create(personProto);
@@ -111,6 +127,11 @@ var jane3 = Object.create(personProto,{
 })
 
 console.log(jane3)
+
+// var john1234 = (new Person('John12', 1000, 'aaa')).create();
+Person('John12', 1000, 'aaa').create();
+// john1234.create();
+// console.log(john1234);
 
 //Primitives vs Objects
 
