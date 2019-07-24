@@ -128,7 +128,7 @@ retirementUS(1971);
 retirement(66)(1990);
 
 //Lecture: Bind, call and apply
-console.log('Bind, Call and Apply');
+console.log('------------------Bind, Call and Apply------------------');
 
 var john = {
     name: 'John',
@@ -161,7 +161,7 @@ var emily = {
 john.presentation.call(emily, 'friendly', 'afternoon'); //first parameter is this element,
 
 //apply method: it set first paramter for 'this', second parameter as array.
-//this is not working because our method don't expect array, but, it is throw error.(it is working)
+//this is not working because our method don't expect array, but, it throws error.(it is working)
 console.log('------------------------------apply---------------------------------');
 john.presentation.apply(emily, ['friendly', 'afternoon']); 
 console.log('------------------------------apply---------------------------------');
