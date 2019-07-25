@@ -1,15 +1,28 @@
 // Function constructor
 
-console.log(name);
+console.log(name);//where comes this name? It comes from the window object. 
+//Why window object has this property? I never define it.
+//Actually, in Note 1, there is a function constructor, inside of it, you have 'this.name=...' keyword, if you create Person instance with 'new' keyword, it is ok.
+//But, if you call it without 'new' keyword, like Note 2, the 'this' will point to window object, then the name is defined.
+//Please note, if you comment out the Note 2 and other place that use Person directly, you still have 'name' logged in console, you have to close this chrome window and open an new window, then it is disappeard.
+//It is because the chrome window object don't refresh when you reload the page, the 'name' property just stay there even you don't have it in the program.
+
+//Another question, if you comment out the Note 2 and other place that use Person directly, and open a new tab, why the console.log(name) don't show like following:
+// console.log(undefinedVar);
+//It is because the 'name' property is predefined property in windows object.
+
+
 console.log(this);
 
 var john22  = {
     name : 'John222',
     yearOfBirth: this.name,//this is weird, why sometimes it show 'John12' sometimes it show "", is this a bug for chrome?
-    //there is some kind of interfere with 'John12' defined bellow:
-    //the conclusion: 'this' key word in here is not point john22 itself.
+    //see the comment above.
+    //when you define the object in this format, 'this' keyword in here is point to window object, 'this' keywork in method point to john22 object.
     abc: 'abc',
-    j: this.abc,// this j is always show undined.
+    j: this.abc,// this j is always show undefined, because you don't define 'abc' in window object.
+    //yearOfBirth show empty string, it because the 'name' is predefined property in window object.
+    w:this,//see, 'this' point to window object.
     job: 'teacher',
     getInfo: function(){return '123'},
     calculateAge: function(param){
@@ -21,6 +34,7 @@ console.log(john22);
 john22.calculateAge('abc');
 
 //Capital letter means function constructor
+//Note 1.
 var Person = function(name, yearOfBirth, job){
     this.name = name;
     this.yearOfBirth = yearOfBirth;
@@ -59,11 +73,11 @@ console.log(john);
 //Here, we can see it is not have 'new', it become a normal function expression.
 //firstly, you have to define the returned value in function, otherwise, you can't get it.
 //secondly, the 'this' in side function point to Windows object.
-var john12 = Person('John12', 1000, 'aaa');
-console.log(john12);
+// var john12 = Person('John12', 1000, 'aaa');
+// console.log(john12);
 
 // john12.calculateAge();//this not working.
-calculateAge();//this works.
+// calculateAge();//this works.
 
 console.log(Person);
 //Here, when you log Person, it just show the soure code, but, Person is an Object, you can log its
@@ -120,18 +134,42 @@ john3.job = 'teacher';
 
 console.log(john3);
 
-var jane3 = Object.create(personProto,{
-    name: { value: 'Jane'},
+var jane3 = Object.create(personProto,{//Please note, the syntax for define the object's properties: https://hackernoon.com/object-create-in-javascript-fa8674df6ed2
+    name: { 
+        writable: true,// if comment it out, the following setter is not working.
+        configurable: true, //https://medium.com/@ayusharma.in/objects-writable-configurable-enumerable-365cdff6a408
+        value: 'Jane'},//it is not {name: 'Jane', ....}
     yearOfBirth: { value: 1969},
-    job: { value: 'designer'}
+    job: { value: 'designer'},
+    nickname: {
+        configurable: false,
+        get: function() { return this.name; },
+        set: function(value) {
+            this.name = value;
+          console.log('Setting `o.bar` to', value);
+        }
+    }
 })
 
 console.log(jane3)
 
-// var john1234 = (new Person('John12', 1000, 'aaa')).create();
-Person('John12', 1000, 'aaa').create();
+console.log(jane3.nickname);
+
+jane3.nickname = 'abc';
+
+console.log(jane3);
+
+// console.log(Object.create());//this is now working
+
+console.log(Object.create(null));
+
+console.log(Object.create(null,{a: {value: 'a'}}));
+
+var john1234 = (new Person('John1234', 1000, 'aaa')).create();
+// Note 2:
+// Person('John12234', 1000, 'aaa').create();
 // john1234.create();
-// console.log(john1234);
+console.log(john1234);
 
 //Primitives vs Objects
 
@@ -168,7 +206,7 @@ function change(a, b){
     b.city = 'San Francisco';
 }
 
-change(a, obj);
+change(age, obj);
 
 console.log(age);
 console.log(obj);

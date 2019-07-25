@@ -28,7 +28,7 @@ it seems that the constructor method automatically added to prototype.
 
 
 The Person object is constructor(constructor is also a object), and John is its instance.
-If we want to John to inheritance a method or property from the Person object, we have to add that method or property to Person's
+If we want John to inherit a method or property from the Person object, we have to add that method or property to Person's
 prototype property.
 following statement is not very clear, it means that when you define something inside Person's prototype property, 
 these method or property are used by its instance not by itself.
