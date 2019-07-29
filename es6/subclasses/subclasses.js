@@ -17,7 +17,7 @@ console.log(john5);
 
 var Athlete5 = function (name, yearOfBirth, job, olymicGames, medals) {
     Person5.call(this, name, yearOfBirth, job);//this is only setup property, not setup prototype chain.
-    // this = new Person5(name, yearOfBirth, job); //this is now workin, because this is determined by runtime, can't be assigned a value.
+    // this = new Person5(name, yearOfBirth, job); //it is not working, because 'this' is determined by runtime, can't be assigned a value.
     this.olymicGames = olymicGames;
     this.medals = medals;
 }
