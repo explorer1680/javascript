@@ -61,14 +61,20 @@ var box5 = {
         document.querySelector('.green').addEventListener('click', function(e){//this is function call, 
             //'this' keyword point global object, which is window object(the 'div' object)
             console.log(e);//'e' means event
-            var str = 'This is box number ' + this.position + ' and it is '+ this.color;//this is not in global scope, not under document object directly.
+            var str = 'This is box number ' + this.position + ' and it is '+ this.color;//this is not in global scope, nor under document object directly.
             console.log(this); //you can see it is 'div' object defined in html(Window.document.body.children.div), but not 'Window' itself.
             alert(str);
         })
+    return function(){
+        console.log(this);//here it is window object
+    }
     }
 }
 
-box5.clickMe();
+var f = box5.clickMe();
+f;
+console.log(f);
+f();
 
 //following is a work arround in ES5 for this situation:
 
@@ -107,6 +113,7 @@ const box62 = {
     clickMe: () => {//this time, method is also defined by arrow function.
         //then, it share the lexical 'this' variable from its surroundings.
         //so, in here, you should not use arrow function.
+        console.log(this);
         document.querySelector('.green').addEventListener('click', () => {
             var str = 'This is box number ' + this.position + ' and it is '+ this.color;
             alert(str);
@@ -114,7 +121,7 @@ const box62 = {
     }
 }
 
-// box62.clickMe();
+box62.clickMe();
 
 function Person(name){
     this.name = name;
@@ -123,15 +130,17 @@ function Person(name){
 //ES5
 Person.prototype.myFriends5 = function(friends){
 
+    console.log(this);//this is Person
     var arr = friends.map(function(el){
-        // console.log(this);
+        console.log(this);//this is window
         return this.name + ' is frients with ' + el; 
-        
-    }.bind(this));//another trick that we can use here is bind()
+    // });//toggle comment for this line and next line, you can see the 'this' in above show object.
+}.bind(this));
+//another trick that we can use here is bind()
     //here, bind method will return an new function, and it can only bind one time, that means if you bind the returned new function with 
     //a new object, it will not change, but, that not means the bind can't be dynamic, here, the 'this' is dynamic to different object.
 
-    console.log(this);
+    
     console.log('the \'this\' in prototype is what you want: '+ this.name);
     console.log(arr);
 }

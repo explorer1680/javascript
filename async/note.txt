@@ -18,7 +18,7 @@ the setTimeout() create a timer with callback function and set the time 2000ms, 
 then, the setTimeout() popup, second() popup.
 then, console.log() called, then it popup.
 then, first() EC popup.
-when 2000ms passed, the timer dispear, then, the callback function move to the Message Queue to wait for EC Stack empty to execute.
+when 2000ms passed, the timer disappear, then, the callback function move to the Message Queue to wait for EC Stack empty to execute.
 Same happen to DOM event as well, event handler sit in the Web APIs' env, waiting for certain event to happens, when event happens, 
 the callback function is placed to Message Queue ready to be execute.
 
@@ -32,7 +32,7 @@ They all start the async function(thread) in main function or thread.
 But:
 in java's main thread, you can't define how to use(get) result without stop and wait it finished.
 (if it is a Thread with runnable, you can't get the result from main thread, you depending on that thread to do something in future.
-if you use callable and future, you have to wait in the main thread to get the result.)
+if you use callable and Future, you have to wait in the main thread to get the result.)
 in javascript, you define how to use the result in main function without wait or stop in main function,
 Event Loop and Message Queue will do the job.
 (you define the Promise, use it, and define then() method all in main thread without wait and stop.)
@@ -50,11 +50,11 @@ consume: use the callback function to fulfill or reject a promise.
 new Promise((resolve, reject) =>{
 
 })
-here, resolve and reject are callback functions that will return the Object that passed to them to then() or catch() method.
+here, resolve and reject are callback functions that will return the Object that passed to them to then() or catch() method. (resolve adn reject are not to sent to Message Queue)
 when you thought the logic is fulfill, you call resolve function, when you thought the logic is error, you call reject.
-If both of them called, then() is called.
+If any of them called, then() is called.
 If no of them called, non of then() or catch() called.
-
+(callback function passed to then() or catch() is sent to Message Queue.)
 
 async function, await, is from ES7.
 await is to consume a Promise. await expression will stop the code, and wait until it fulfilled. And the result will assign to the variable.
@@ -73,3 +73,5 @@ using https://corsproxy.github.io/ to work arround
 or using https://cors-anywhere.herokuapp.com/ to work arround
 
 json() method of Response return an Promise object.
+
+we can see the error from fetch is not catched by 'then()...catch()' method.

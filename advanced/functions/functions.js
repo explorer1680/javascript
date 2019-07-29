@@ -166,7 +166,7 @@ console.log('------------------------------apply--------------------------------
 john.presentation.apply(emily, ['friendly', 'afternoon']); 
 console.log('------------------------------apply---------------------------------');
 
-//bind, bind allow us to preset some arguments.
+//bind: call and apply is to run function, bind is to get a new function, bind allow us to preset some arguments.
 var johnFriendly = john.presentation.bind(john, 'friendly'); //here, you just provide the first parameter, and get a function.
 johnFriendly('morning'); //here, you provide the second parameter.
 johnFriendly('night');
