@@ -28,12 +28,12 @@ myFirstPromise
     // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
     sleep(5000);
     console.log("Yay! " + successMessage);
-},
+}
 // ) 
-(rejected) => { console.log("Fall! " + rejected) })//you can define a second method in then(), it is same as define it in catch().
+,(rejected) => { console.log("Fall! " + rejected) }//you can define a second method in then(), it is same as define it in catch().
 //if you have a second method in then(), catch() will never reached. You need only one of them.
-.catch((error) => {
-    console.log(error);//
+).catch((error) => {
+    console.log(error);//when you don't have second function in then(), error comes here, the difference is the 'new Error()' log in here has printed with the line number.
 });
 
 //Please see the above example on how to receive rejected message from then() or from catch().
