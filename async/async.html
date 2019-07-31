@@ -46,8 +46,8 @@
 
         const getIDs = new Promise((resolve2, reject)=>{
             setTimeout(() =>{
-                    resolve2([1111, 2222, 3333, 4444]);
-                    reject('I am in getIDs');
+                resolve2([1111, 2222, 3333, 4444]);//comment out this line, the reject return, the catch on the last will received the reject message.
+                reject('I am in getIDs');//if you define resolve and reject same time, the first one will win.
             }, 5000)
         });
 
@@ -87,7 +87,7 @@
         // .then( recipe =>{
         //     console.log(recipe);
         // })
-        // .catch( error => {
+        // .catch( error => {//catch on the last will deal with error in the chain
         //     console.log('err: ' + error);
         // });
 
