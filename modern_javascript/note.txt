@@ -16,7 +16,7 @@ npm install webpack --save-dev: 'save-dev' means it will save webpack as a devel
 it will add 'webpack' in the package.json under the "devDependencies".
 npm install jquery --save: it will add 'jquery' in the package.json usner the "dependancies".
 
-node_modules contains all the dependancies defined in package.json and the dependancies of them(dependancies o webpack and jquery).
+node_modules contains all the dependancies defined in package.json and the dependancies of them(dependancies of webpack and jquery).
 
 to share the project with others, we only need share the package.json file, and run:
 npm install
