@@ -30,7 +30,7 @@
                 const recipeID = [111, 222, 333, 444];
                 console.log(recipeID);
 
-                setTimeout((id)=>{
+                setTimeout((id)=>{//the param 'id' is passed by third param in setTimeout function.
                     const recipe = {title: 'Fresh tomato pasta', publisher: 'Jonas'};
                     console.log(`${id}: ${recipe.title}`);
 
@@ -73,23 +73,23 @@
             });
         };
 
-        //then can return Promise Object, and you can chain then() together.
-        // getIDs
-        // .then( IDs =>{
-        //     console.log("display something.");
-        //     console.log(IDs);
-        //     return getRecipe2(IDs[2]);
-        // })
-        // .then( recipe => {
-        //     console.log(recipe);
-        //     return getRelated(recipe.publisher);
-        // })
-        // .then( recipe =>{
-        //     console.log(recipe);
-        // })
-        // .catch( error => {//catch on the last will deal with error in the chain
-        //     console.log('err: ' + error);
-        // });
+        // then can return Promise Object, and you can chain then() together.
+        getIDs
+        .then( IDs =>{
+            console.log("display something.");
+            console.log(IDs);
+            return getRecipe2(IDs[2]);
+        })
+        .then( recipe => {
+            console.log(recipe);
+            return getRelated(recipe.publisher);
+        })
+        .then( recipe =>{
+            console.log(recipe);
+        })
+        .catch( error => {//catch on the last will deal with error in the chain
+            console.log('err: ' + error);
+        });
 
         async function getRecipesAW() {
             const IDs = await getIDs;
