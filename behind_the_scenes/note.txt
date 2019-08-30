@@ -47,7 +47,7 @@ Creation phase:
         code is scanned for variable declarations, for each variable, a property is created in the VO, and set to undefined. 
         (variable is hoisted in Javascript)(you can use variable in the place before its definition, it will return undefined)
 2. creation of Scope Chain
-3. Determine value of the "this" variable
+3. Determine value of the "this" variable (Note: 'this' keyword is not assigned a value until a function where it is defined is actually called.)
 
 Execution phase:
 The code of the function that generate the current EC is run line by line.

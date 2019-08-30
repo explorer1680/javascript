@@ -4,7 +4,7 @@ var name = 'John';
 
 console.log(name ===window.name);//it is possible that window has a property called name, and its value is 'John'(not correct)
 //everything we declare in global EC, is automatically attached to the window object as a property
-//using object to test, primitive variable compare value, object comare reference.
+//using object to test, primitive variable compare value, object compare reference.
 
 
 var obj1 = {
@@ -81,12 +81,15 @@ function foo(){
     //for function, you can use it before the place you define it;
     //for variable, you get 'undefined' before the place you define it.
     console.log('inside foo(): ' + name);//note here, it will go to global EC to get 'name'
-    var age = 65;
+    // var age = 65; //this is defining a new variable inside of function.
+    age = 65; // this is using the global variable.
+    // https://stackoverflow.com/questions/1470488/what-is-the-purpose-of-the-var-keyword-and-when-should-i-use-it-or-omit-it
+    // this is different from the python.
     console.log('inside foo(): ' + age);
     // console.log('inside foo(): ' + notdeclared);
 }
 
-console.log(age);
+console.log(age); //23 or 65? it is depending on having 'var' or not inside of function foo().
 
 
 //Lecture: Scoping
@@ -142,3 +145,7 @@ var mike = {
 //method borrow
 mike.calculateAge = john.calculateAge;
 mike.calculateAge();
+
+//we can see, the javascript also support create properties on the fly.
+mike.abc = 'abc';
+console.log(mike);
