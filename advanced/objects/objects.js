@@ -54,6 +54,7 @@ var Person = function(name, yearOfBirth, job){
 }
 
 //instantiation
+//Please note, in javascript ES5, there is no concept 'class' it is just 'object'. Using 'new' before a function expression, you get an object, without 'new', it is just a normal function call.
 //what new do: 
 //1. a brand new empty object is created.
 //2. the constructor funciton is called. calling a function create a new Execution Context, 
