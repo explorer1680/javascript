@@ -160,7 +160,7 @@ jane3.nickname = 'abc';
 
 console.log(jane3);
 
-// console.log(Object.create());//this is now working
+// console.log(Object.create());//this is not working
 
 console.log(Object.create(null));
 
