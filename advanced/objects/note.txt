@@ -7,6 +7,14 @@ constructor or prototype(they are same in javascript, in another programming lan
 
 Inheritance
 
+The concept 'Inheritance' is not same java, in java, it is relationship between super class and sub class.
+It is between Constructor and instance.
+It is a way to define method in Constructor's prototype property.
+It has the same result as define the method inside of Constructor by 
+    this.method_name = function(){...}
+The difference is: the prototype way has only 1 method shared by all instance, but the Constructor way have different function for each instance.
+Here, the instance inherit method from Constructor.
+
 javascript is a prototype based language, it means the inheritance works by using something called prototype.
 it means, each and every javascript objects has a prototype property.
 
@@ -32,7 +40,8 @@ it seems that the constructor method automatically added to prototype.
 
 The Person object is constructor(constructor is also a object), and John is its instance.
 If we want John to inherit a method or property from the Person object, we have to add that method or property to Person's
-prototype property.
+prototype property. (we can see here, the inherit is not same Java, it is the relationship between Constructor and Instance)
+
 following statement is not very clear, it means that when you define something inside Person's prototype property, 
 these method or property are used by its instance not by itself.
 (Note here, the Person's prototype is not the prototype of the Person itself, but of all instance created by Person's constructor.

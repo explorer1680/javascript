@@ -89,6 +89,10 @@ console.log(Person.prototype);
 var jane = new Person('Jane', 1969, 'designer');
 var mark = new Person('Mark', 1948, 'retired');
 
+console.log(jane.calculateAge)
+console.log(mark.calculateAge)
+console.log(jane.calculateAge === mark.calculateAge)
+
 
 //inheritance:
 console.log('---------------------Inheritance----------------------')
@@ -114,6 +118,9 @@ mark2.calculateAge();
 console.log(john2.lastName);
 console.log(jane2.lastName);
 console.log(mark2.lastName);
+
+console.log(john2.calculateAge === jane2.calculateAge)
+
 
 console.log(john2.__proto__ === Person2.prototype);
 
