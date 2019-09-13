@@ -173,9 +173,23 @@ console.log(Object.create(null));
 
 console.log(Object.create(null,{a: {value: 'a'}}));
 
-var john1234 = (new Person('John1234', 1000, 'aaa')).create();
+var john1234 = (new Person('John1234', 1000, 'aaa')).create(); //what's this?
+var p1 = new Person('John1234', 1000, 'aaa').create(); //new have high precedence, but . have higher precedence, this is same as following:
+console.log(p1);
+// var p11 = Person('John1234', 1000, 'aaa').create(); // this is not working
+// console.log(p11);
+// here is the answer:
+// https://stackoverflow.com/questions/17587808/why-does-new-date-tostring-work-given-javascript-operator-precedence
+
+var p2 = new Person('John1234', 1000, 'aaa');
+console.log((p2).create());
+console.log(p2.create());
+
+console.log(jane.create());
+// console.log(jane2.create()); // why this is not allowed? what is the difference between jane2 and jane? Person has a method called 'create'
+// console.log(jane3.create()); // why this is not allowed? what is the difference between jane3 and jane?
 // Note 2:
-// Person('John12234', 1000, 'aaa').create();
+// console.log(Person('John12234', 1000, 'aaa').create());
 // john1234.create();
 console.log(john1234);
 

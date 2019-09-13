@@ -12,7 +12,7 @@ It is between Constructor and instance.
 It is a way to define method in Constructor's prototype property.
 It has the same result as define the method inside of Constructor by 
     this.method_name = function(){...}
-The difference is: the prototype way has only 1 method shared by all instance, but the Constructor way have different function for each instance.
+The difference is: the prototype way has only 1 method object shared by all instance, but the Constructor way have different function object for each instance.
 Here, the instance inherit method from Constructor.
 
 javascript is a prototype based language, it means the inheritance works by using something called prototype.

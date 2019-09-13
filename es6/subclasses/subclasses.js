@@ -22,15 +22,31 @@ var Athlete5 = function (name, yearOfBirth, job, olymicGames, medals) {
     this.medals = medals;
 }
 
+console.log(Athlete5.prototype); //here, you can see it has a constructor, according following test, function object has a prototype property. 
+// and this prototype include the constructor function.
+
+function ABC(){}
+console.log(ABC.prototype);
+
+var ABCD = function(){}
+console.log(ABCD.prototype);
+
+var ABCDE;
+var ABCDE = '123';
+console.log(ABCDE);
+console.log(ABCDE.prototype);
+
+
 // Athlete5.prototype.wonMedal = function () {//this definition will lost after Object.create(...)
 //     this.medals++;
 // }
 
 Athlete5.prototype = Object.create(Person5.prototype);//set up prototype chain
-//Here is set up a prototype chain, but, the Athlet5.prototype point to an object its prototype is Person5.prototype.
+//Here is set up a prototype chain, but, the Athlet5.prototype point to (is) an object its prototype is Person5.prototype.
 //it is not the Athlet5.prototype point to Person5.prototype.
 //the structure of Athlete5 is not same as Athlete6.
 //because when you using above expression, the constructor is lost.
+
 
 Athlete5.prototype.wonMedal = function () {// this part has to be after the Object.create(...)
     this.medals++;
@@ -45,6 +61,12 @@ console.log(johnAthlete5);
 
 johnAthlete5.calculateAge();
 //look at the console: __proto__: Person5, means what?
+
+console.log(johnAthlete5.__proto__.__proto__ === Person5.prototype);// on the console, the __proto__:Person5 show the prototype chain, 
+// it does not means __proto__ is the type of Person5,
+// it means __proto__.__proto__ is Person5.protype.
+
+
 
 //ES6
 class Person6 {

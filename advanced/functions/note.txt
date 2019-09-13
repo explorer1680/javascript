@@ -9,6 +9,8 @@ We can also return a function from a function.
 because of all above, we call in javascript, we have First-Class functions.
 I think it means the function is object.
 
+function has a property called prototype. (see the es6/subclass)
+
 
 Closures:
 An inner function has always access to the variables and parameters of its outer function, even after the outer function has returned.
