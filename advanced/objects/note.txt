@@ -3,6 +3,7 @@ we have primitives and objects.
 Arrays, Functions are all objects in javascript.
 
 constructor or prototype(they are same in javascript, in another programming language, it is called class)
+you define the Person function, it will have a property called 'prototype', when you log this object, it will include a property called: 'constructor', it is same as Person.
  Constructor --> instances
 
 Inheritance
@@ -114,7 +115,7 @@ In, ES6, classes, the static method is a way to do it.
 
 primitives vs object.
 the big difference between them is the variable containing the primitives holding that data inside the variable itself.
-variable associated with object do not contain the objects, it tontain the reference in the memoery where the object sits.
+variable associated with object do not contain the objects, it contain the reference in the memoery where the object sits.
 
-for function, when pass primitives, it is simple copy as created, the change will not affect outside, 
+for function, when pass primitives, it is simply copy as created, the change will not affect outside, 
 when we pass the object, the reference is passed. 

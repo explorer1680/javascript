@@ -83,6 +83,11 @@ console.log(john);
 console.log(Person);
 //Here, when you log Person, it just show the soure code, but, Person is an Object, you can log its
 console.log(Person.prototype);
+console.log(Person.__proto__);
+console.log(Person.__proto__abc);
+console.log(john.prototype);
+console.log(john.__proto__);
+console.log(Person === Person.prototype.constructor);
 
 
 
