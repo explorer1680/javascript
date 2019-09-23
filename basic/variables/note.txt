@@ -2,10 +2,15 @@ string type variable can be define with '' or "".
 in the Chrome console, you can see the file name and line number of the output on the right end of the line.
 
 JavaScript has 5 primitive(these are not objects) data types:
-Number, Floating point numbers for decimals and integers. 5 means 5.0, there is no integer in JavaScript.
-String, Boolean, 
+Number: floating point numbers for decimals and integers. 5 means 5.0, there is no integer in JavaScript.
+(typeof NaN is a number)
+String, 
+Boolean: true or false 
 Undefined: Data type of a variable which does not have a value yet.
-Null: Also means 'non-existent'.
+Null: Also means 'non-existent'. (typeof null is object, it is an error in javascript, typeof Null is undefined)
+
+now, there is one more:
+Symbal: Symbal('a')
 
 JavaScript has dynamic typing.
 JavaScript figure out the data type of variable on it own and on the fly.

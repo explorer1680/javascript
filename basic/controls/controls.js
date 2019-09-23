@@ -89,3 +89,28 @@ for(var i = 1; i < 6; i++){
     }
     console.log(i);
 }
+
+
+console.log('------------forEach---------------')
+
+//forEach
+var a = ['1', '2', '3'];
+a.forEach((element)=>{//ES5
+    console.log(element);
+})
+
+console.log('------------for-in---------------')
+//for-in, don't use it unless you know what it will do.
+var b = [];
+b[5] = 'c';
+for(notdefinedvariable in b){//ES6, here, the variable don't need 'var' or 'const', why?
+//the variable is key, not the value.
+    console.log(notdefinedvariable);
+    console.log(b[notdefinedvariable]);
+}
+
+console.log('------------for-of---------------')
+var c =['a', 'b', 'c']
+for(anothervariable of c){//ES6+, don't need 'var' or 'const'. the variable is value.
+    console.log(anothervariable);
+}
