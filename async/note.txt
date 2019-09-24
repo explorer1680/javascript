@@ -1,6 +1,6 @@
 event, Message queue:
 Message Queue hold event.
-event only can be processed when EC stack is empty.
+event only can be processed when EC stack is empty. (that means the callbacks in Message Queue has been executed only after main programs completes, that means the setTimeout only setup the minimal waiting times.)
 event handler process event, it put its EC into the EC stack.
 
 (the above statement may be not correct:)
@@ -62,6 +62,9 @@ when you thought the logic is fulfill, you call resolve function, when you thoug
 If any of them called, then() is called.
 If no of them called, non of then() or catch() called.
 (callback function passed to then() or catch() is sent to Message Queue.)
+
+Promise's thenable callbacks go to a Job Queue, not the Message Queue, this Job Queue has high priorities than Message Queue.
+https://medium.com/@Rahulx1/understanding-event-loop-call-stack-event-job-queue-in-javascript-63dcd2c71ecd
 
 async function, await, is from ES7.
 await is to consume a Promise. await expression will stop the code, and wait until it fulfilled. And the result will assign to the variable.
