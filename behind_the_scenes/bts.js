@@ -71,6 +71,18 @@ console.log(age);
 
 // test();
 
+// var vs no var:
+
+//without var
+// abcdef = 123; //this works
+// console.log(abcdef);
+// abcdef = 123; //this is an runtime error
+
+//with var
+
+console.log(xyz);
+var xyz = 'xyz'; // this is not an error
+
 foo();
 function foo(){
     console.log('inside foo(): ' + age);//note here, if you don't define 'age' inside of this function, 
