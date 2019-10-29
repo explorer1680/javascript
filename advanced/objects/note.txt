@@ -2,9 +2,18 @@ In JavaScript, Everything is an object. (well, almost everything)
 we have primitives and objects.
 Arrays, Functions are all objects in javascript.
 
-constructor or prototype(they are same in javascript, in another programming language, it is called class)
-you define the Person function, it will have a property called 'prototype', when you log this object, it will include a property called: 'constructor', it is same as Person.
- Constructor --> instances
+constructor and prototype
+you define the Person function, it will have a property called 'prototype'.
+you can not find it when you log instance created by new Person(), or log Person directly.
+but you can log Person.prototype, when you log this object, it will include a property called: 'constructor', it is same as Person.
+Person === Person.prototype.constructor
+
+(Please note, in javascript ES5, there is no concept 'class' it is just 'object'. 
+Using 'new' before a function expression, you get an object, without 'new', it is just a normal function call.)
+
+When we use Function to create instance, we call it constructor. 
+
+Constructor --> instances
 
 Inheritance
 
@@ -16,16 +25,7 @@ It has the same result as define the method inside of Constructor by
 The difference is: the prototype way has only 1 method object shared by all instance, but the Constructor way have different function object for each instance.
 Here, the instance inherit method from Constructor.
 
-javascript is a prototype based language, it means the inheritance works by using something called prototype.
-it means, each and every javascript objects has a prototype property.
 
-(Note, the Inheritance here is not same as java. It like static method or static field in java.) this statement may not correct.
-You can still expect the same idea of inheritance as Java, but, 
-1. the inheritance in javascript is not limited to that idea, anything related with prototype is inheritance in javascript.
-2. the inheritance is done by prototype in javascript.
-
-(Please note, in javascript ES5, there is no concept 'class' it is just 'object'. 
-Using 'new' before a function expression, you get an object, without 'new', it is just a normal function call.)
 
 Here, the constructor is 'Class' in java. (if you call it without 'new' keyword, it is just a normal juction expression)
 The instance of constructor has a '__proto__' property, you can check this by javascript console;
@@ -36,31 +36,30 @@ When you define method or property in Person2's 'prototype' property
 These method or property are available to all Person2's instance.
 This is call inheritance of javascript.
 
-it seems that the constructor method automatically added to prototype.
-
 
 The Person object is constructor(constructor is also a object), and John is its instance.
 If we want John to inherit a method or property from the Person object, we have to add that method or property to Person's
 prototype property. (we can see here, the inherit is not same Java, it is the relationship between Constructor and Instance)
 
-following statement is not very clear, it means that when you define something inside Person's prototype property, 
-these method or property are used by its instance not by itself.
-(Note here, the Person's prototype is not the prototype of the Person itself, but of all instance created by Person's constructor.
-the Person's(constructor's) prototype property is prototype of its instances.
+
 Person itself is an instance of bigger constructor (object).
 
 the prototype chain:
-javascript search method or property in its own first, if it can't find it, it will try to find it in its prototype, 
-which is prototype property of its parent(constructor). It will up to Object, then go to 'null'. 'null' don't have prototype. 
+javascript search method or property in its own first, if it can't find it, it will try to find it in its __proto__, 
+which is prototype property of its class(constructor). It will up to Object, then go to 'null'. 'null' don't have prototype. 
 In this case, undefined is returned.
 
 JavaScript console is a very powerful tool to inspect object chain.
-It is not a tool to show the (Type, or Constructor, Class) chain clearly. (only show the type of your instance at the first layer)
-Example, it show john2 is type of Person2 in first layer, but, it not show Person2 is type of Object directly. 
-It show '__proto__' chain, but, that chain is just a json object structure.
+Example, it show john2 is type of Person2 in first layer.
+It show '__proto__' chain:
+__proto__: Object means:    Athlete5.prototype = Object.create({a: 'a'}) or Athlete5.prototype never changed.
+__proto__: Person5 means:   Athlete5.prototype = Object.create(Person5.prototype), in this case:
+    Athlete5.prototype.__proto__ === Person5.prototype
+    johnAthlete5.__proto__.__proto__ === Person5.prototype
+__proto__: Function means:  Athlete5.prototype = Object.create(Person5)
 operation:
-chean the code in console. (press the first icon in 'Console')
-the '__proto__' is the prototype of the instance, which is the prototype property of the constructor.
+clean the code in console. (press the first icon in 'Console')
+
 
 in Chrome console, the '__proto__' show the prototype chain.
 '__proto__: Person' not means this object's prototype is of type Person, (it show the chain, search in '__proto__' then search in 
@@ -105,6 +104,7 @@ var personProto = {
 var john3 = Object.create(personProto);
 
 2 and 4 are same. (not same, 2 use key word 'new', 4 use Object.create())
+I think 2 and 3 are same.
 
 do we have a way to create object like:
 var x = Person.create(); //or

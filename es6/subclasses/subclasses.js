@@ -41,6 +41,10 @@ console.log(ABCDE.prototype);
 //     this.medals++;
 // }
 
+// var anotherFunc = {a:'a'};
+// Athlete5.prototype = Object.create(anotherFunc);
+
+
 Athlete5.prototype = Object.create(Person5.prototype);//set up prototype chain
 //Here is set up a prototype chain, but, the Athlet5.prototype point to (is) an object its prototype is Person5.prototype.
 //it is not the Athlet5.prototype point to Person5.prototype.
@@ -58,6 +62,13 @@ johnAthlete5.wonMedal();
 
 
 console.log(johnAthlete5);
+console.log(johnAthlete5.__proto__ === Person5);
+console.log(johnAthlete5.__proto__ === Person5.prototype);
+console.log(johnAthlete5.__proto__ === Object.create(Person5.prototype));
+console.log(Athlete5.prototype.prototype === Person5.prototype);
+console.log(Athlete5.prototype.prototype);
+console.log(Athlete5.prototype.__proto__ === Person5.prototype);
+console.log(johnAthlete5.__proto__.__proto__ === Person5.prototype);
 
 johnAthlete5.calculateAge();
 //look at the console: __proto__: Person5, means what?

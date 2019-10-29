@@ -66,6 +66,8 @@ var Person = function(name, yearOfBirth, job){
 // maybe, it because '123' is primitive.
 // yes, if you return an object, it will use that object as the new created object.
 var john = new Person('John', 1991, 'teacher');
+var john_xxx = new Person('John', 1991, 'teacher');
+console.log(john.calculateAge === john_xxx.calculateAge); //here, they are not same
 
 john.calculateAge();
 
@@ -126,7 +128,7 @@ console.log(mark2.lastName);
 
 console.log(john2.calculateAge === jane2.calculateAge)
 
-
+console.log(john2);
 console.log(john2.__proto__ === Person2.prototype);
 
 //Ojbect.create
@@ -153,7 +155,9 @@ var jane3 = Object.create(personProto,{//Please note, the syntax for define the 
         configurable: true, //https://medium.com/@ayusharma.in/objects-writable-configurable-enumerable-365cdff6a408
         value: 'Jane'},//it is not {name: 'Jane', ....}
     yearOfBirth: { value: 1969},
-    job: { value: 'designer'},
+    job: { 
+        writable: true,
+        value: 'designer'},
     nickname: {
         configurable: false,
         get: function() { return this.name; },
@@ -169,6 +173,12 @@ console.log(jane3)
 console.log(jane3.nickname);
 
 jane3.nickname = 'abc';
+
+jane3.job = 'xxx';
+jane3.abc = 'abc';
+delete jane3.abc;
+delete jane3.name;
+delete jane3.job;
 
 console.log(jane3);
 
