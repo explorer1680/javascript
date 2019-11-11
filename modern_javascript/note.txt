@@ -23,5 +23,5 @@ npm install
 all the file will be installed in the node_modules dir.
 
 npm uninstall jquery --save: it will uninstall jquery from "dependancies"
-npm install live-server --global: it will save the package gloally, which means all project in this machine can access it.
+npm install live-server --global: it will save the package globally, which means all projects in this machine can access it.
 --save or --save-dev are locally accessible, only this project can use it.

@@ -66,6 +66,7 @@ console.log(johnAthlete5.__proto__ === Person5);
 console.log(johnAthlete5.__proto__ === Person5.prototype);
 console.log(johnAthlete5.__proto__ === Object.create(Person5.prototype));
 console.log(Athlete5.prototype.prototype === Person5.prototype);
+console.log(Athlete5.prototype.__proto__);
 console.log(Athlete5.prototype.prototype);
 console.log(Athlete5.prototype.__proto__ === Person5.prototype);
 console.log(johnAthlete5.__proto__.__proto__ === Person5.prototype);
