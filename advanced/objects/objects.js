@@ -24,6 +24,7 @@ var john22  = {
     //yearOfBirth show empty string, it because the 'name' is predefined property in window object.
     w:this,//see, 'this' point to window object.
     job: 'teacher',
+    // this.xxxxxx= 'xxxxxx', //you can't use this like inside of function.
     getInfo: function(){return '123'},
     calculateAge: function(param){
         console.log(this);
@@ -37,6 +38,7 @@ john22.calculateAge('abc');
 //Note 1.
 var Person = function(name, yearOfBirth, job){
     this.name = name;
+    xxxxxyyyyy = name;//without 'this', it will defined inside of windows object.
     this.yearOfBirth = yearOfBirth;
     this.job = job;
     this.calculateAge = function(){//in here, each instance will have this function(each one will have its own function), it is not inheritance.
@@ -52,6 +54,8 @@ var Person = function(name, yearOfBirth, job){
     // return john22;
 
 }
+
+console.log(window);
 
 //instantiation
 //Please note, in javascript ES5, there is no concept 'class' it is just 'object'. Using 'new' before a function expression, you get an object, without 'new', it is just a normal function call.
