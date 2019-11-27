@@ -1,138 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Section: Asynchronize JavaScript</title>
-    </head>
 
-    <body>
-            <h1>Lecture: Asynchronize JavaScript</h1>
-    </body>
+<head>
+    <meta charset="UTF-8" />
+    <title>Section: Asynchronize JavaScript</title>
+</head>
 
-    <script>
-        const second = () => {
-            setTimeout(()=>{//please note, setTimeout is Async function, it not stop and wait to it finished. It just setup the callback and go ahead.
-                console.log('Async Hey there');
-            }, 10000);
-        }
+<body>
+    <h1>Lecture: Asynchronize JavaScript</h1>
+</body>
 
-        const first = () => {
-            console.log('Hey there');
-            second();
-            console.log('The end');
-        };
+<script>
 
-        first();
-
-        //callback hell
-        function getRecipe(){
-            setTimeout(() => {
-                const recipeID = [111, 222, 333, 444];
-                console.log(recipeID);
-
-                setTimeout((id)=>{//the param 'id' is passed by third param in setTimeout function.
-                    const recipe = {title: 'Fresh tomato pasta', publisher: 'Jonas'};
-                    console.log(`${id}: ${recipe.title}`);
-
-                    setTimeout(publisher =>{
-                        const recipe2 = {title: 'Italian Pizza', publisher: publisher};
-                        console.log(recipe2);
-                    }, 1000, recipe.publisher);
-                }, 1000, recipeID[3])
-            }, 1500);
-        }
-
-        getRecipe();
-
-        const getIDs = new Promise((resolve2, reject)=>{
-            setTimeout(() =>{
-                resolve2([1111, 2222, 3333, 4444]);//comment out this line, the reject return, the catch on the last will received the reject message.
-                reject('I am in getIDs');//if you define resolve and reject same time, the first one will win.
-            }, 5000)
+    /////////////////////////////////////////////////////////////////////
+    // callback queue vs job queue
+    console.log('Message no. 1: Sync');
+    setTimeout(function () {
+        console.log('Message no. 2: setTimeout');
+    }, 0);
+    var promise = new Promise(function (resolve, reject) {
+        resolve();
+    });
+    promise.then(function (resolve) {
+        console.log('Message no. 3: 1st Promise');
+    })
+        .then(function (resolve) {
+            console.log('Message no. 4: 2nd Promise');
         });
+    console.log('Message no. 5: Sync');
 
-        const getRecipe2 = recID => {
-            return new Promise((resolve, reject) =>{
-                setTimeout( ID =>{
-                    const recipe = {title: 'Fresh tomato pasta', publisher: 'Jonas'};
-                    resolve(recipe);
-                    reject('I am in getRecipe2');
-                }, 1000, recID)
-            });
-        };
+    ///////////////////////////////////////////////////////////////////
 
-        const getRelated = publisher => {
-            return new Promise((res, rej) =>{
-                setTimeout(pub =>{
-                    const recipe = {
-                        title: 'Just Pizza', publisher: pub
-                    };
-                    res(recipe);
-                    rej('I am in getRelated');
-                }, 1000, publisher);
-            });
-        };
+    const second = () => {
+        setTimeout(() => {//please note, setTimeout is Async function, it not stop and wait to it finished. It just setup the callback and go ahead.
+            console.log('Async Hey there');
+        }, 10000);
+    }
 
-        // then can return Promise Object, and you can chain then() together.
-        getIDs
-        .then( IDs =>{
+    const first = () => {
+        console.log('Hey there');
+        second();
+        console.log('The end');
+    };
+
+    first();
+
+    //callback hell
+    function getRecipe() {
+        setTimeout(() => {
+            const recipeID = [111, 222, 333, 444];
+            console.log(recipeID);
+
+            setTimeout((id) => {//the param 'id' is passed by third param in setTimeout function.
+                const recipe = { title: 'Fresh tomato pasta', publisher: 'Jonas' };
+                console.log(`${id}: ${recipe.title}`);
+
+                setTimeout(publisher => {
+                    const recipe2 = { title: 'Italian Pizza', publisher: publisher };
+                    console.log(recipe2);
+                }, 1000, recipe.publisher);
+            }, 1000, recipeID[3])
+        }, 1500);
+    }
+
+    getRecipe();
+
+    const getIDs = new Promise((resolve2, reject) => {
+        setTimeout(() => {
+            resolve2([1111, 2222, 3333, 4444]);//comment out this line, the reject return, the catch on the last will received the reject message.
+            reject('I am in getIDs');//if you define resolve and reject same time, the first one will win.
+        }, 5000)
+    });
+
+    const getRecipe2 = recID => {
+        return new Promise((resolve, reject) => {
+            setTimeout(ID => {
+                const recipe = { title: 'Fresh tomato pasta', publisher: 'Jonas' };
+                resolve(recipe);
+                reject('I am in getRecipe2');
+            }, 1000, recID)
+        });
+    };
+
+    const getRelated = publisher => {
+        return new Promise((res, rej) => {
+            setTimeout(pub => {
+                const recipe = {
+                    title: 'Just Pizza', publisher: pub
+                };
+                res(recipe);
+                rej('I am in getRelated');
+            }, 1000, publisher);
+        });
+    };
+
+    // then can return Promise Object, and you can chain then() together.
+    getIDs
+        .then(IDs => {
             console.log("display something.");
             console.log(IDs);
             return getRecipe2(IDs[2]);
         })
-        .then( recipe => {
+        .then(recipe => {
             console.log(recipe);
             return getRelated(recipe.publisher);
         })
-        .then( recipe =>{
+        .then(recipe => {
             console.log(recipe);
         })
-        .catch( error => {//catch on the last will deal with error in the chain
+        .catch(error => {//catch on the last will deal with error in the chain
             console.log('err: ' + error);
         });
 
-        async function getRecipesAW() {
-            const IDs = await getIDs;
-            console.log(IDs);
-            const recipe = await getRecipe2(IDs[2]);
-            console.log(recipe);
-            const related = await getRelated(recipe.publisher);
-            console.log(related);
-            // return 'recipe';
-            return getRelated(recipe.publisher);
-        }
+    async function getRecipesAW() {
+        const IDs = await getIDs;
+        console.log(IDs);
+        const recipe = await getRecipe2(IDs[2]);
+        console.log(recipe);
+        const related = await getRelated(recipe.publisher);
+        console.log(related);
+        // return 'recipe';
+        return getRelated(recipe.publisher);
+    }
 
-        console.log(getRecipesAW());//this log is run very quickly.
-        //then 'getRecipesAW()' run the the async function.
-
-
-        //following code run the async functon and deal with the returned Promise Object.
-        getRecipesAW().then(result =>{
-            console.log(result);
-            console.log(`${result.title} is the best ever!`);
-        });
+    console.log(getRecipesAW());//this log is run very quickly.
+    //then 'getRecipesAW()' run the the async function.
 
 
-        // //using fetch
+    //following code run the async functon and deal with the returned Promise Object.
+    getRecipesAW().then(result => {
+        console.log(result);
+        console.log(`${result.title} is the best ever!`);
+    });
 
-        // //new Response().json();
 
-        function getWeather(woeid){
+    // //using fetch
 
-            fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
-            .then(result =>{
+    // //new Response().json();
+
+    function getWeather(woeid) {
+
+        fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
+            .then(result => {
                 console.log(result);
                 return result.json();
             })
-            .then(data =>{
+            .then(data => {
                 console.log(data);
             })
-            .catch(error =>{
+            .catch(error => {
                 console.log(error);
             });
-        }
+    }
 
-        getWeather(24879561111);
+    getWeather(24879561111);
 
         // async function getWeatherAW(woeid){
         //     try{
@@ -142,10 +163,11 @@
         //     }catch(error){
         //         console.log(error);
         //     }
-           
+
         // }
 
         // getWeatherAW(24879561111);
-        
-    </script>
+
+</script>
+
 </html>
