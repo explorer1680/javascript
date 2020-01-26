@@ -76,7 +76,7 @@ johnAthlete5.calculateAge();
 
 console.log(johnAthlete5.__proto__.__proto__ === Person5.prototype);// on the console, the __proto__:Person5 show the prototype chain, 
 // it does not means __proto__ is the type of Person5,
-// it means __proto__.__proto__ is Person5.protype.
+// it means __proto__.__proto__ is Person5.prototype.
 
 
 
