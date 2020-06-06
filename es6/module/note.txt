@@ -7,6 +7,19 @@ module is just a normal .js file, but, it can export and import.
 export default 'xxx';
 export const add = (a, b) => a + b;
 
+export have to be used when declare the variable.
+    you can't declare it first, and export it later.
+export default can separate declearation and export.
+only one 'export default' can exist in on module.
+you can have multiple export and only one 'export default'.
+
+when using import,
+    import {xxx, yyy, zzz} from ...
+        is to imporing normal export, the name has to be match.
+    import abc from ...
+        is to importig 'export default', the name can be any name.
+    
+
 
 import string from './xxx/name';
 
