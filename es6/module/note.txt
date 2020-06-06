@@ -11,3 +11,8 @@ export const add = (a, b) => a + b;
 import string from './xxx/name';
 
 to look at the result, please see the example in src and dist.
+
+you need add 'type="module"' to both <script>
+
+to run this exmple, you have to use httpd:
+docker container run -d --rm --name httpd -p 80:80 -v /Users/Ethan/git/javascript/es6/module/:/usr/local/apache2/htdocs/ httpd:2.4
