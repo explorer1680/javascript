@@ -12,6 +12,7 @@ export have to be used when declare the variable.
 export default can separate declearation and export.
 only one 'export default' can exist in on module.
 you can have multiple export and only one 'export default'.
+you can export a variable and then export default it later.
 
 when using import,
     import {xxx, yyy, zzz} from ...
