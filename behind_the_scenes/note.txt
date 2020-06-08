@@ -71,6 +71,12 @@ Scope Chain is the chain (order, direction) javascript try to find the variable 
 in regular funciton call: 'this' keyword point at the global object (the window object, in the browser).
 method call: 'this' points to the object that is calling the method.
 Note: 'this' keyword is not assigned a value until a function where it is defined is actually called.
+callback function: 'this' is determined by the "higher order function".
+https://thenewstack.io/mastering-javascript-callbacks-bind-apply-call/
+If the callback like:
+    document.querySelector('.green').addEventListener('click', function(e){...
+    this will point to the object selected by querySelector.
+
 
 Note:
 what is method borrow. see inside of the bts.js

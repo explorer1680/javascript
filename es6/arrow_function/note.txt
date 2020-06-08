@@ -1,3 +1,8 @@
 the 'this' key word in function sometimes confuse people, here is the detailed explaination:
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+
+
+the arrow function don't support call, apply, bind, and can not use new
+
+https://www.codementor.io/@dariogarciamoya/understanding-this-in-javascript-with-arrow-functions-gcpjwfyuc

@@ -61,7 +61,11 @@ var box5 = {
         document.querySelector('.green').addEventListener('click', function(e){//this is function call, 
             //'this' keyword point global object, which is window object(the 'div' object)
             console.log(e);//'e' means event
-            var str = 'This is box number ' + this.position + ' and it is '+ this.color;//this is not in global scope, nor under document object directly.
+            function inline(){
+                console.log(this);
+            }
+            inline();
+            var str = 'from box5, This is box number ' + this.position + ' and it is '+ this.color;//this is not in global scope, nor under document object directly.
             console.log(this); //you can see it is 'div' object defined in html(Window.document.body.children.div), but not 'Window' itself.
             alert(str);
         })
@@ -78,19 +82,20 @@ f();
 
 //following is a work arround in ES5 for this situation:
 
-var box5 = {
+var box52 = {
     color: 'green',
     position: 1,
     clickMe: function(){
         var self = this;
         document.querySelector('.green').addEventListener('click', function(){
-            var str = 'This is box number ' + self.position + ' and it is '+ self.color;
+            var str = 'from box52, This is box number ' + self.position + ' and it is '+ self.color;
+            console.log(this);
             alert(str);
         })
     }
 }
 
-// box5.clickMe();
+box52.clickMe();
 
 //ES6
 
@@ -99,13 +104,13 @@ const box6 = {
     position: 1,
     clickMe: function(){
         document.querySelector('.green').addEventListener('click', () => {
-            var str = 'This is box number ' + this.position + ' and it is '+ this.color;
+            var str = 'from box6, This is box number ' + this.position + ' and it is '+ this.color;
             alert(str);
         })
     }
 }
 
-// box6.clickMe();
+box6.clickMe();
 
 const box62 = {
     color: 'green',
@@ -115,7 +120,7 @@ const box62 = {
         //so, in here, you should not use arrow function.
         console.log(this);
         document.querySelector('.green').addEventListener('click', () => {
-            var str = 'This is box number ' + this.position + ' and it is '+ this.color;
+            var str = 'from box62, This is box number ' + this.position + ' and it is '+ this.color;
             alert(str);
         })
     }
