@@ -2,6 +2,8 @@ the 'this' key word in function sometimes confuse people, here is the detailed e
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
+the value of this inside of function determined by 'use strict'.
+
 
 the arrow function don't support call, apply, bind, and can not use new
 
