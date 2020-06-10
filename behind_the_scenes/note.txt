@@ -77,6 +77,9 @@ If the callback like:
     document.querySelector('.green').addEventListener('click', function(e){...
     this will point to the object selected by querySelector.
 
+"this" is determined when normal function is called.
+"this" is determined when arrow function is created.
+
 
 Note:
 what is method borrow. see inside of the bts.js
