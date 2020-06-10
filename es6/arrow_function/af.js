@@ -98,6 +98,7 @@ var box52 = {
 box52.clickMe();
 
 //ES6
+//is this ES6?
 
 const box6 = {
     color: 'greens',

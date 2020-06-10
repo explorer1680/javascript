@@ -8,3 +8,31 @@ the value of this inside of function determined by 'use strict'.
 the arrow function don't support call, apply, bind, and can not use new
 
 https://www.codementor.io/@dariogarciamoya/understanding-this-in-javascript-with-arrow-functions-gcpjwfyuc
+
+arrow function get this when it created.
+when defined in object:
+    {
+        a: 'a'
+        f: ()=>{
+            this means windows
+        }
+    }
+
+when defined in class:
+    class C {
+        m = () =>{
+            this means this instance of C
+        }
+    }
+
+when defined in function:
+    var P = function(...){
+        this.f = ()=>{
+            this means the object.
+        }
+    }
+
+when defined in prototype:
+    p.prototype.f=() =>{
+        this means windows
+    }
