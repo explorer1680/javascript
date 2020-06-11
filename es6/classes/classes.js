@@ -43,9 +43,12 @@ class Person6 {
         this.job = job;
     }
 
+    state = 'happy'; //you can add property to object directly.
+
     calculateAge() {
         var age = new Date().getFullYear() - this.yearOfBirth;
         console.log(age);
+        console.log(this.state);
     }
 
     //ES6 also have static method.
@@ -59,6 +62,7 @@ const john6 = new Person6('John', 1990, 'teacher');
 
 console.log(john5);
 console.log(john6);
+john6.calculateAge();
 
 //You can't call it:
 // john6.greeting();
