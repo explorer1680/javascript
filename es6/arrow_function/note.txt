@@ -36,3 +36,11 @@ when defined in prototype:
     p.prototype.f=() =>{
         this means windows
     }
+
+please note, in the above situation, if we use:
+f = function(){
+    ()=>{...}
+}
+the result may different.
+
+https://stackoverflow.com/questions/31755186/es6-arrow-functions-not-working-on-the-prototype
