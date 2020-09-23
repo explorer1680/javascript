@@ -43,6 +43,10 @@ var Person = function(name, yearOfBirth, job){
     this.job = job;
     this.calculateAge = function(){//in here, each instance will have this function(each one will have its own function), it is not inheritance.
         console.log(2017-this.yearOfBirth);
+        function showThis(){
+            console.log(this);
+        }
+        showThis();
     }
     this.create = function(){
         console.log('I am here');
