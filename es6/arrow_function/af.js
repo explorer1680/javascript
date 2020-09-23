@@ -3,7 +3,7 @@
 const years = [1990, 1965, 1982, 1937];
 
 //ES5
-var ages5 = years.map(function(el){
+var ages5 = years.map(function (el) {
     return 2017 - el;
 });
 
@@ -11,7 +11,7 @@ var ages5 = years.map(function(el){
 
 console.log(ages5);
 
-function agefun2(el){
+function agefun2(el) {
     return 2017 - el;
 }
 
@@ -21,13 +21,13 @@ console.log(ages52);
 
 //ES6
 
-let ages6 = years.map(el => 2017 -el);//el is argument, '=>' is operator, '2017 - el' is return statement.
+let ages6 = years.map(el => 2017 - el);//el is argument, '=>' is operator, '2017 - el' is return statement.
 console.log(ages6);
 
-ages6 = years.map((el, index) =>`Age element ${index + 1}: ${2017-el}`);
+ages6 = years.map((el, index) => `Age element ${index + 1}: ${2017 - el}`);
 console.log(ages6);
 
-ages6 = years.map((el,index) =>{
+ages6 = years.map((el, index) => {
     const now = new Date().getFullYear();
     const age = now - el;
     return `Age element ${index + 1}: ${age}`
@@ -55,23 +55,23 @@ document.color = 'blue';
 var box5 = {
     color: 'green',
     position: 1,
-    clickMe: function(){//this is method call, 'this' keyword point to its object.
-    console.log(this);
-    console.log(document.querySelector('.green'));
-        document.querySelector('.green').addEventListener('click', function(e){//this is function call, 
+    clickMe: function () {//this is method call, 'this' keyword point to its object.
+        console.log(this);
+        console.log(document.querySelector('.green'));
+        document.querySelector('.green').addEventListener('click', function (e) {//this is function call, 
             //'this' keyword point global object, which is window object(the 'div' object)
             console.log(e);//'e' means event
-            function inline(){
+            function inline() {
                 console.log(this);
             }
             inline();
-            var str = 'from box5, This is box number ' + this.position + ' and it is '+ this.color;//this is not in global scope, nor under document object directly.
+            var str = 'from box5, This is box number ' + this.position + ' and it is ' + this.color;//this is not in global scope, nor under document object directly.
             console.log(this); //you can see it is 'div' object defined in html(Window.document.body.children.div), but not 'Window' itself.
             alert(str);
         })
-    return function(){
-        console.log(this);//here it is window object
-    }
+        return function () {
+            console.log(this);//here it is window object
+        }
     }
 }
 
@@ -85,10 +85,10 @@ f();
 var box52 = {
     color: 'green',
     position: 1,
-    clickMe: function(){
+    clickMe: function () {
         var self = this;
-        document.querySelector('.green').addEventListener('click', function(){
-            var str = 'from box52, This is box number ' + self.position + ' and it is '+ self.color;
+        document.querySelector('.green').addEventListener('click', function () {
+            var str = 'from box52, This is box number ' + self.position + ' and it is ' + self.color;
             console.log(this);
             alert(str);
         })
@@ -103,9 +103,9 @@ box52.clickMe();
 const box6 = {
     color: 'greens',
     position: 1,
-    clickMe: function(){
+    clickMe: function () {
         document.querySelector('.green').addEventListener('click', () => {
-            var str = 'from box6, This is box number ' + this.position + ' and it is '+ this.color;
+            var str = 'from box6, This is box number ' + this.position + ' and it is ' + this.color;
             alert(str);
         })
     }
@@ -121,7 +121,7 @@ const box62 = {
         //so, in here, you should not use arrow function.
         console.log(this);
         document.querySelector('.green').addEventListener('click', () => {
-            var str = 'from box62, This is box number ' + this.position + ' and it is '+ this.color;
+            var str = 'from box62, This is box number ' + this.position + ' and it is ' + this.color;
             alert(str);
         })
     }
@@ -129,25 +129,25 @@ const box62 = {
 
 box62.clickMe();
 
-function Person(name){
+function Person(name) {
     this.name = name;
 }
 
 //ES5
-Person.prototype.myFriends5 = function(friends){
+Person.prototype.myFriends5 = function (friends) {
 
     console.log(this);//this is Person
-    var arr = friends.map(function(el){
+    var arr = friends.map(function (el) {
         console.log(this);//this is window
-        return this.name + ' is frients with ' + el; 
-    // });//toggle comment for this line and next line, you can see the 'this' in above show object.
-}.bind(this));
-//another trick that we can use here is bind()
+        return this.name + ' is frients with ' + el;
+        // });//toggle comment for this line and next line, you can see the 'this' in above show object.
+    }.bind(this));
+    //another trick that we can use here is bind()
     //here, bind method will return an new function, and it can only bind one time, that means if you bind the returned new function with 
     //a new object, it will not change, but, that not means the bind can't be dynamic, here, the 'this' is dynamic to different object.
 
-    
-    console.log('the \'this\' in prototype is what you want: '+ this.name);
+
+    console.log('the \'this\' in prototype is what you want: ' + this.name);
     console.log(arr);
 }
 
@@ -156,7 +156,7 @@ new Person('John').myFriends5(friends);
 new Person('Smith').myFriends5(friends);
 
 //ES6
-Person.prototype.myFriends6 = function(friends){
+Person.prototype.myFriends6 = function (friends) {
 
     // var arr = friends.map((el) =>{// or 
 
