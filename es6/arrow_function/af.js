@@ -166,7 +166,7 @@ Person.prototype.myFriends6 = function(friends){
 
     var arr = friends.map(el => this.name + ' is frients with ' + el);//also, you can use template literals.
     //again, the arrow function's 'this' keyword is from surrounding function, which is under Person's prototype.
-    //although, prototype property belong to Person, but, the function defined in it is method, 
+    //although, prototype property belong to Person, but, the function defined in its method, 
     //'this' keyword inside method always point to instance.
 
     console.log(arr);
