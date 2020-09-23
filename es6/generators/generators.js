@@ -3,7 +3,7 @@ function* process() {
     console.log('Pause process2 until call next()');
 
     yield;
-
+    // return 5;  //you can finish it and return value by return.
     console.log('Resumed process2');
     console.log('Pause process3 until call next()');
 
@@ -12,6 +12,7 @@ function* process() {
 
     console.log('Resumed process3');
     console.log('End of the process function');
+    // return 3;
 }
 
 let _process = process();
@@ -21,7 +22,10 @@ let value0 = _process.next(100);
 console.log(value0);
 let value1 = _process.next(100);
 console.log(value1);
-_process.next(60);
+let value2 = _process.next(60);
+console.log(value2);
+
+console.log(_process.next(70)); //finished generator always return {value: undefined, done: true}
 
 
 
@@ -49,7 +53,7 @@ function* two() {
   }
 }
 var g2 = two(); 
-console.log(g2.next(1000)); //first call not working
+console.log(g2.next(500)); //first call not working
 console.log(g2.next(1000));
 console.log(g2.next(200));
 
