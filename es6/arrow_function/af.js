@@ -59,14 +59,14 @@ var box5 = {
         console.log(this);
         console.log(document.querySelector('.green'));
         document.querySelector('.green').addEventListener('click', function (e) {//this is function call, 
-            //'this' keyword point global object, which is window object(the 'div' object)
+            //'this' keyword point to the 'div' object, it is not the windows object
+            console.log(this); //you can see it is 'div' object defined in html(Window.document.body.children.div), but not 'Window' itself.
             console.log(e);//'e' means event
             function inline() {
                 console.log(this);
             }
             inline();
             var str = 'from box5, This is box number ' + this.position + ' and it is ' + this.color;//this is not in global scope, nor under document object directly.
-            console.log(this); //you can see it is 'div' object defined in html(Window.document.body.children.div), but not 'Window' itself.
             alert(str);
         })
         return function () {
@@ -174,3 +174,77 @@ Person.prototype.myFriends6 = function (friends) {
 
 new Person('John6').myFriends6(friends);
 new Person('Smith6').myFriends6(friends);
+
+where = 'in windows';
+object1 = {
+    where: 'in object',
+    method_normal: function(){
+        console.log(where);
+        console.log(this.where)
+    },
+    // method_arrow1 = () =>{   //this is not a valid syntax
+    //     console.log(where)
+    // },
+    method_arrow2: () =>{
+        console.log(where);
+        console.log(this.where)
+    }
+}
+
+object1.method_normal();
+// object1.method_arrow1();
+object1.method_arrow2();
+
+function F(){
+    this.where = 'in Function'
+    this.func = function(){
+        console.log(this.where);
+    }
+    this.arrow = ()=>{              //the definition in here is not run until the new F() is called, 
+        console.log(this.where);    //when that function is called, 'this' is point to the object itself.
+    }
+}
+
+F.prototype.arrow_p = ()=>{
+    console.log(this.where);
+}
+F.prototype.func_p = function(){
+    console.log(this.where);
+}
+
+f_obj = new F();
+f_obj.func();
+f_obj.arrow();
+f_obj.func_p();
+f_obj.arrow_p();
+
+var fun_expr = function(){
+    this.where = 'in Function'
+    this.func = function(){
+        console.log(this.where);
+    }
+    this.arrow = ()=>{
+        console.log(this.where);
+    }
+}
+f_obj2 = new fun_expr();
+f_obj2.func();
+f_obj2.arrow();
+
+class Person6 {
+    constructor() {
+    }
+    where = 'in side class object';
+
+    fun(){
+        console.log(this.where);
+    }
+
+    arrow = ()=>{
+        console.log(this.where);
+    }
+}
+
+class_obj = new Person6();
+class_obj.fun();
+class_obj.arrow();
