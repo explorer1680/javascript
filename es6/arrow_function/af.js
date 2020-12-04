@@ -240,6 +240,10 @@ class Person6 {
         console.log(this.where);
     }
 
+    func = function(){
+        console.log(this.where);
+    }
+
     arrow = ()=>{
         console.log(this.where);
     }
@@ -248,3 +252,4 @@ class Person6 {
 class_obj = new Person6();
 class_obj.fun();
 class_obj.arrow();
+class_obj.func();
