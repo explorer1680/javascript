@@ -9,7 +9,7 @@ the arrow function don't support call, apply, bind, and can not use new
 
 https://www.codementor.io/@dariogarciamoya/understanding-this-in-javascript-with-arrow-functions-gcpjwfyuc
 
-arrow function get this when it created.
+arrow function get 'this' when it created.
 when defined in object:
     {
         a: 'a'
@@ -44,3 +44,22 @@ f = function(){
 the result may different.
 
 https://stackoverflow.com/questions/31755186/es6-arrow-functions-not-working-on-the-prototype
+
+syntax:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+one param, simple expression, parentheses is not needed, return is implied;
+    param => expression
+
+Multiple params require parentheses:
+    (param1, paramN) => expression
+
+Multiline statements require body brackets and return:
+    param => {
+        ...
+        return ...;
+    }
+
+To return an object literal expression requires parentheses around expression:
+    params => ({foo: "a"}) // returning the object {foo: "a"}
+
