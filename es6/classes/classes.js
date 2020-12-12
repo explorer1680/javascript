@@ -43,7 +43,7 @@ class Person6 {
         this.job = job;
     }
 
-    state = 'happy'; //you can add property to object directly.
+    state = 'happy'; //you can add property to object directly. it is added to the constructor by this.state automatically.
 
     calculateAge() {
         var age = new Date().getFullYear() - this.yearOfBirth;
@@ -74,4 +74,3 @@ Person6.greeting();
 //basically, Person6 class is function, function is an object, you can attach an method to an object.
 
 //Class definition is not hoisterd, you can only define it firstly before you can use it.
-//We can only add method to classes but not properties.
