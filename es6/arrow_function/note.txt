@@ -10,6 +10,7 @@ the arrow function don't support call, apply, bind, and can not use new
 https://www.codementor.io/@dariogarciamoya/understanding-this-in-javascript-with-arrow-functions-gcpjwfyuc
 
 arrow function get 'this' when it created. (it is don't have 'this' keyword, they have lexical 'this' variable.)
+how and when it get this 'lexical this'? when created, from parent scope.
 when defined in object:
     {
         a: 'a'
@@ -28,7 +29,7 @@ when defined in class:
 when defined in function:
     var P = function(...){
         this.f = ()=>{
-            this means the object.
+            this means the object, when you create object with 'obj = new P()', and run 'obj.f'
         }
     }
 
