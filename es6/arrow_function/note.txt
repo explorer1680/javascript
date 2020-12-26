@@ -10,7 +10,9 @@ the arrow function don't support call, apply, bind, and can not use new
 https://www.codementor.io/@dariogarciamoya/understanding-this-in-javascript-with-arrow-functions-gcpjwfyuc
 
 arrow function get 'this' when it created. (it is don't have 'this' keyword, they have lexical 'this' variable.)
-how and when it get this 'lexical this'? when created, from parent scope.
+how and when it get this 'lexical this'? when created, from parent scope? Or when used, from parent scope? (I think this is correct)
+For the normal function, 'this' is determined when use, there is no concept 'when created'.
+
 when defined in object:
     {
         a: 'a'
