@@ -119,3 +119,16 @@ variable associated with object do not contain the objects, it contain the refer
 
 for function, when pass primitives, it is simply copy as created, the change will not affect outside, 
 when we pass the object, the reference is passed. 
+
+how to create object with variable:
+
+var key = 'abc'
+var obj = {
+    key: '123'
+}
+with ES6 and Babel:
+{
+    [key]: '123'
+}
+
+https://stackoverflow.com/questions/11508463/javascript-set-object-key-by-variable
