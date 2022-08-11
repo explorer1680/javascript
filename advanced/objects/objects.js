@@ -28,8 +28,16 @@ var john22  = {
     getInfo: function(){return '123'},
     calculateAge: function(param){
         console.log(this);
-        console.log(this.yearOfBirth + ' ' + param)}
+        console.log(this.yearOfBirth + ' ' + param);
+        function oneMoreLayer(){
+            console.log(this);
+        }
+        oneMoreLayer();
+    }
 }
+
+
+john22.__proto__ = new Object();
 
 console.log(john22);
 john22.calculateAge('abc');

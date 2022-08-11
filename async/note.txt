@@ -6,7 +6,7 @@ event handler process event, it put its EC into the EC stack.
 (the above statement may be not correct:)
 Message Queue hold event landler not event, event happens in Web APIs.
 When event happens, the event handler go to Message Queue.
-event handler coan ben processed when EC stact is empty.
+event handler can be processed when EC stact is empty.
 event handler process event, it put its EC into the EC stack.
 
 
@@ -57,8 +57,8 @@ consume: use the callback function to fulfill or reject a promise.
 new Promise((resolve, reject) =>{
 
 })
-here, resolve and reject are callback functions that will return the Object that passed to them to then() or catch() method. (resolve and reject are not to sent to Message Queue)
-when you thought the logic is fulfill, you call resolve function, when you thought the logic is error, you call reject.
+here, resolve and reject are methods provided by system, it will pass the object(information) to then() or catch() method. (resolve and reject are not to sent to Message Queue)
+when you thought the logic is fulfill, you call resolve function; when you thought the logic is error, you call reject.
 If any of them called, then() is called.
 If no of them called, non of then() or catch() called.
 (callback function passed to then() or catch() is sent to Message Queue.)

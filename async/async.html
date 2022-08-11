@@ -140,15 +140,23 @@
 
     function getWeather(woeid) {
 
-        fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`, {
+            headers: {
+            'origin': 'personal-test',
+            'x-requested-with': 'personal-test'
+            }
+        })
             .then(result => {
+                console.log('step 1');
                 console.log(result);
                 return result.json();
             })
             .then(data => {
+                console.log('step 2');
                 console.log(data);
             })
             .catch(error => {
+                console.log('in Catch');
                 console.log(error);
             });
     }
