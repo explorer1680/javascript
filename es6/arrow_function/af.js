@@ -1,4 +1,5 @@
 //Lecture: Arrow Function
+// "use strict";
 
 const years = [1990, 1965, 1982, 1937];
 
