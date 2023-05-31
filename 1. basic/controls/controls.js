@@ -93,9 +93,9 @@ for(var i = 1; i < 6; i++){
 
 console.log('------------forEach---------------')
 
-//forEach
+//forEach is from ES5
 var a = ['1', '2', '3'];
-a.forEach((element)=>{//ES5
+a.forEach((element)=>{
     console.log(element);
 })
 

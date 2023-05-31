@@ -2,7 +2,7 @@ Javascript is always host in some environment, tipically is browser, like Google
 Other host example is Node.js web server.
 
 behind  the scene:
-Javascript engine take our code and executed. Javascript engine is a program that execute Javascript code.
+Javascript engine take our code and execute it. Javascript engine is a program that execute Javascript code.
 example is Google V8 engine, used in Google Chrome.
 
 in engine, our code is parsed by a parser, read our code line by line, and check the syntax. 
@@ -23,11 +23,11 @@ The default execution context, the global EC:
 
 Note, the function declaration is also inside of global EC.
 
-When call a function in global EC, it will get a new EC "on top of" the global EC. 
+When calling a function in global EC, it will get a new EC "on top of" the global EC. 
 This "on top of" will form a "Execution Stack".
 Note: only funciton call will create a new EC.
 
-When call another function inside of another function's EC, there is one more new EC put "on top of" the "Execution Stack".
+When calling another function inside another function's EC, there is one more new EC put "on top of" the "Execution Stack".
 
 When the function return, the corresponding EC is removed(or pop off) from "Execution Stack".
 
@@ -37,7 +37,7 @@ EC object has 3 properties:
 2. Scope Chain, contain the current VO as well as the VOs of its parents.
 3. "this" variable.
 
-2 phase in javascript:
+2 phase in javascript: (are these 2 phases exist/repeat for all functions? or just at the first time the engine parsed the code?) (it is exist in all functions)
 Creation phase:
 1. creation of the VO
     the argument object is created.
@@ -74,8 +74,8 @@ Note: 'this' keyword is not assigned a value until a function where it is define
 callback function: 'this' is determined by the "higher order function".
 https://thenewstack.io/mastering-javascript-callbacks-bind-apply-call/
 If the callback like:
-    document.querySelector('.green').addEventListener('click', function(e){...
-    this will point to the object selected by querySelector.
+    document.querySelector('.green').addEventListener('click', function(e){...})
+    'this' will point to the object selected by querySelector.
 
 "this" is determined when normal function is called.
 "this" is determined when arrow function is created.

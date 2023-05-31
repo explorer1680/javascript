@@ -85,9 +85,9 @@ var xyz = 'xyz'; // this is not an error
 
 foo();
 function foo(){
-    console.log('inside foo(): ' + age);//note here, if you don't define 'age' inside of this function, 
-    //it will go to global EC to get 'age', but, if you have defined 'age' inside of this funciotn,
-    //it will using the 'age' inside of function, that why it show 'undefined' here, when you comment out
+    console.log('inside foo(): ' + age);//note here, if you don't define 'age' inside this function, 
+    //it will go to global EC to get 'age', but, if you have defined 'age' inside this funciotn,
+    //it will using the 'age' inside function, that why it show 'undefined' here, when you comment out
     //the following definition, it will show 23. 
     //anthor thing need to notice here, the difference for hoisting of variable and function.
     //for function, you can use it before the place you define it;
