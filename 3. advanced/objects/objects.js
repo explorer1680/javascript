@@ -19,7 +19,8 @@ console.log(name);
 
 
 console.log(this);
-
+//key point here: the 'this' in property definition and in function call is determined in different time
+//property definition is in outer function call, it is determined now, function call is in the future.
 var john22  = {
     name : 'John222',
     //scenario 1: this.xxxxxx= 'xxxxxx', //you can't use this like inside of function.
@@ -81,11 +82,11 @@ var Person = function(name, yearOfBirth, job){
     //the new apply function call will create new object, 'this' point to this new object
     //by normal function, 'this' point to window.
     //statement inside of the function is executed same, only the 'this' is different.
-    //why in scenario 3, this point to object, in scenario 4, this point to window?
-    //in scenario 3, it is method call, so, it this point to object.
+    //why in scenario 3, this point to object, in scenario 4, this point to window? (when calling, they are in different binding)
+    //in scenario 3, it is method call, so, it this point to object. 
 
     // Function Execution Context
-    // In the Function Execution Context, how the this keyword is determined depends on how a function is called or invoked.
+    // In the Function Execution Context, 'this' keyword depends on how a function is called or invoked.(binding)
 
     // A Javascript function can be invoked in four ways:
 
@@ -93,6 +94,7 @@ var Person = function(name, yearOfBirth, job){
     // Invocation as a method
     // Invocation as a constructor
     // Invocation with the apply and call methods
+    // actually, there is one more situation, called by dom element.
        
     return '123';
     // return {a: 'a', b: 'b'};
