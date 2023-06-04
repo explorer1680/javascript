@@ -4,7 +4,7 @@ Arrays, Functions are all objects in javascript.
 
 constructor and prototype
 you define the Person function, it will have a property called 'prototype'.
-you can not find it when you log instance created by new Person(), or log Person directly.
+you can not find it when you log Person function directly, you can find it by log instance created by new Person().
 but you can log Person.prototype, when you log this object, it will include a property called: 'constructor', it is same as Person.
 Person === Person.prototype.constructor
 
@@ -22,8 +22,10 @@ It is between Constructor and instance.
 It is a way to define method in Constructor's prototype property.
 It has the same result as define the method inside of Constructor by 
     this.method_name = function(){...}
-The difference is: the prototype way has only 1 method object shared by all instance, but the Constructor way have different function object for each instance.
-Here, the instance inherit method from Constructor.
+The difference is: 
+    1. the prototype way has only 1 method object shared by all instance, but the method(property) way have different function object for each instance.
+    2. the prototype way can be chained for long 'distance'. (by Object.create(xxx))
+Here, the instance inherit method from Constructor's prototype.
 
 
 
@@ -53,7 +55,7 @@ JavaScript console is a very powerful tool to inspect object chain.
 Example, it show john2 is type of Person2 in first layer.
 It show '__proto__' chain:
 __proto__: Object means:    Athlete5.prototype = Object.create({a: 'a'}) or Athlete5.prototype never changed.
-__proto__: Person5 means:   Athlete5.prototype = Object.create(Person5.prototype), in this case:
+__proto__: Person5 means:   Athlete5.prototype = Object.create(Person5.prototype), in this case:    *** this is not Athlete5.prototype = Person5.prototype
     Athlete5.prototype.__proto__ === Person5.prototype
     johnAthlete5.__proto__.__proto__ === Person5.prototype
 __proto__: Function means:  Athlete5.prototype = Object.create(Person5)
@@ -73,8 +75,8 @@ john2.hasOwnProperty('lastName'): false
 john2 instanceof Person2: true ('instanceof' is keyword)
 
 Object.create()
-this method create instance with the prototype defined by object passed as the first parameter of create method.
-the function constructor way create instance with the prototype as the Person's 'prototype' property.
+this method create instance with the __proto__ defined by object passed as the first parameter of create method.
+the function constructor way create instance with the __proto__ defined by Person's 'prototype' property.
 
 
 4(3) way to create object:
@@ -124,11 +126,11 @@ how to create object with variable:
 
 var key = 'abc'
 var obj = {
-    key: '123'
+    key: '123'                  *** this will show key: 123
 }
 with ES6 and Babel:
 {
-    [key]: '123'
+    [key]: '123'                *** this will show abc: 123, but it works with ES56
 }
 
 https://stackoverflow.com/questions/11508463/javascript-set-object-key-by-variable
