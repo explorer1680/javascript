@@ -52,7 +52,7 @@ john22.calculateAge('abc');
 
 //Capital letter means function constructor
 //Note 1.
-var MyPerson = function(name, yearOfBirth, job){
+var Person = function(name, yearOfBirth, job){
     //scenario 1: this depending on how Person is used, if it is call be function, this is point to window, if it is called by new, it point to object.
     this.name = name;
     //scenario 2:
@@ -101,11 +101,7 @@ var MyPerson = function(name, yearOfBirth, job){
     // looks like the return here only apply to the function call, not affect new Person(...)? return 123 not affact, return {a: 'a', b: 'b'} affect.
 }
 
-// var myperson = new MyPerson('my_name', 1999, 'teacher');
-// myperson.calculateAge();
-myPerson = new MyPerson('my_name', 1999, 'teacher');
-ccddee();
-myPerson.ccddee();
+
 
 Person('my_name', 1999, 'teacher');
 console.log(Person('my_name', 1999, 'teacher'));
