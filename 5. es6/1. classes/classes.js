@@ -33,7 +33,11 @@ Person5.prototype.calculateAge = function () {
     console.log(age);
 }
 
+Person5.prototype.date = {a: 'a'}
+
 var john5 = new Person5('John', 1990, 'teacher');
+
+console.log(john5);
 
 //ES6
 class Person6 {
@@ -44,10 +48,16 @@ class Person6 {
     }
 
     state = 'happy'; //you can add property to object directly. it is added to the constructor by this.state automatically.
+    // state are not go the prototype.
+    
+    age = 0;
 
-    calculateAge() {
-        var age = new Date().getFullYear() - this.yearOfBirth;
-        console.log(age);
+    calculateAge() {    //only method defined here go to prototype.
+        // var age = new Date().getFullYear() - this.yearOfBirth;       *** without defined age property, you can use this
+        // console.log(age);
+        this.age = new Date().getFullYear() - this.yearOfBirth;
+        console.log(this.age);
+        // console.log(age);                                            *** this is not working if using 'age' property, please not, here, it is not inner scope vs outer scope 
         console.log(this.state);
     }
 
@@ -55,14 +65,27 @@ class Person6 {
     static greeting(){
         console.log('Hey there!');
         console.log(this);//here, this is not point to Windows object, it point to Person6.
+        //it don't have access to object
+        //where is this method located? in prototype? no
+        //we just need to rememeber it.
+    }
+
+    //you can add getter/setter here:
+    get theAge(){
+        return this.age;
+    }
+
+    set theAge(age){
+        this.age = age;
     }
 }
 
 const john6 = new Person6('John', 1990, 'teacher');
 
-console.log(john5);
+
 console.log(john6);
 john6.calculateAge();
+console.log(john6.theAge);
 
 //You can't call it:
 // john6.greeting();
