@@ -67,7 +67,7 @@ var box5 = {
                 console.log(this);
             }
             inline();
-            var str = 'from box5, This is box number ' + this.position + ' and it is ' + this.color;//this is not in global scope, nor under document object directly.
+            var str = 'from box5, This is box number ' + this.position + ' and it is ' + this.color + ', this box class name: ' + this.className;//this is not in global scope, nor under document object directly.
             alert(str);
         })
         return function () {
@@ -84,8 +84,8 @@ f();
 //following is a work arround in ES5 for this situation:
 
 var box52 = {
-    color: 'green',
-    position: 1,
+    color: 'orange',
+    position: 10,
     clickMe: function () {
         var self = this;
         document.querySelector('.green').addEventListener('click', function () {
@@ -102,8 +102,8 @@ box52.clickMe();
 //is this ES6?
 
 const box6 = {
-    color: 'greens',
-    position: 1,
+    color: 'blue',
+    position: 20,
     clickMe: function () {
         document.querySelector('.green').addEventListener('click', () => {
             var str = 'from box6, This is box number ' + this.position + ' and it is ' + this.color;
@@ -139,7 +139,7 @@ Person.prototype.myFriends5 = function (friends) {
 
     console.log(this);//this is Person
     var arr = friends.map(function (el) {
-        console.log(this);//this is window
+        console.log(this);//this is window, if without bind
         return this.name + ' is frients with ' + el;
         // });//toggle comment for this line and next line, you can see the 'this' in above show object.
     }.bind(this));
@@ -216,8 +216,9 @@ F.prototype.func_p = function(){
 f_obj = new F();
 f_obj.func();
 f_obj.arrow();
-f_obj.func_p();
 f_obj.arrow_p();
+f_obj.func_p();
+
 
 var fun_expr = function(){
     this.where = 'in Function'
