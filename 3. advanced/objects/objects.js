@@ -51,6 +51,10 @@ john22.__proto__ = new Object();
 console.log(john22);
 john22.calculateAge('abc');
 
+function aaaaaa(){
+    console.log(this);
+}
+
 //Capital letter means function constructor
 //Note 1.
 var Person = function(name, yearOfBirth, job){
@@ -68,12 +72,14 @@ var Person = function(name, yearOfBirth, job){
         }
         showThis();
     };
-    function aabbcc(){  //this definition is not an error, but calling aabbcc() is an error for both function call or new apply function call.
+    function aabbcc(){  //this definition is not an error, it not define a function in window, with new apply function call, calling object.ccddee() is an error.
         console.log(this);
     };
-    ccddee = function(){ //this defintion is not an error, but calling ccddee() ppint to window by function call, with new apply function call, calling object.ccddee() is an error.
+    aabbcc();
+    ccddee = function(){ //this definition is not an error, it defines a function ccddee() in window, with new apply function call, calling object.ccddee() is an error.
         console.log(this);
     }
+    ccddee();
     this.create = function(){
         console.log('I am here');
     }
@@ -112,6 +118,8 @@ console.log(name);
 
 console.log(window);
 
+
+
 //instantiation
 //Please note, in javascript ES5, there is no concept 'class' it is just 'object'. Using 'new' before a function expression, you get an object, without 'new', it is just a normal function call.
 //what new do: 
@@ -128,7 +136,13 @@ var john = new Person('John', 1991, 'teacher');
 var john_xxx = new Person('John', 1991, 'teacher');
 console.log(john.calculateAge === john_xxx.calculateAge); //here, they are not same
 
+aaaaaa();
+aaaaaa.apply(john);
+
 john.calculateAge();
+
+// john.aabbcc();
+// john.ccddee();
 
 console.log(john);
 
