@@ -59,16 +59,16 @@ function aaaaaa(){
 //Note 1.
 var Person = function(name, yearOfBirth, job){
     //scenario 1: this depending on how Person is used, if it is call be function, this is point to window, if it is called by new, it point to object.
-    this.name = name;
+    this.name = name;   //if call by new, 1st step is create an empty object, then 'this' point to this object, and finally return the object.
     //scenario 2:
     xxxxxyyyyy = name;//without 'this', it will defined inside of windows object, there is no difference between called by function or by called by new.
     this.yearOfBirth = yearOfBirth;
     this.job = job;
     this.calculateAge = function(){//in here, each instance will have this function(each one will have its own function), it is not inheritance.
-        console.log(this);
-        console.log(2017-this.yearOfBirth); ////scenario 3:  when you apply new, it create object, 'this' point to object; if you call it by function, 'this' point to window
+        console.log(this);  //scenario 3: "this" in here is determined by binding. scenario 1's 'this' point to object when using 'new'.
+        console.log(2017-this.yearOfBirth); //also scenario 3:  when you apply new, it create object, 'this' point to object; if you call it by function, 'this' point to window
         function showThis(){
-            console.log(this);  //scenario 4: this is always point to window
+            console.log(this);  //scenario 4: this is always point to window (this is also determined by binding)
         }
         showThis();
     };
